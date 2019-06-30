@@ -1,0 +1,10 @@
+{
+  "name": "homework",
+  "version": "0.1.0",
+  "description": "A media center app that uses some cool tech.",
+  "main": "index.js",
+  "repository": "https://github.com/nimobeeren/homework",
+  "author": "Nimo Beeren",
+  "license": "MIT",
+  "private": true
+}
