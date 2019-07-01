@@ -2,9 +2,24 @@
   "name": "homework",
   "version": "0.1.0",
   "description": "A media center app that uses some cool tech.",
-  "main": "index.js",
   "repository": "https://github.com/nimobeeren/homework",
   "author": "Nimo Beeren",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "scripts": {
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.22",
+    "@types/react-dom": "^16.8.4",
+    "source-map-loader": "^0.2.4",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.2",
+    "webpack": "^4.35.0",
+    "webpack-cli": "^3.3.5"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
 }
