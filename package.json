@@ -7,6 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "server": "node server.js",
     "build": "webpack"
   },
   "devDependencies": {
@@ -19,6 +20,8 @@
     "webpack-cli": "^3.3.5"
   },
   "dependencies": {
+    "koa": "^2.7.0",
+    "koa-static": "^5.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }

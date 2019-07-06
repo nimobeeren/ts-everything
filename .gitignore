@@ -1,3 +1,6 @@
 # IntelliJ files
 .idea/
 *.iml
+
+# Webpack bundles
+dist/*bundle.js
