@@ -1,27 +1,34 @@
 const path = require('path');
 
 module.exports = {
-    // TODO: set mode to production/development?
+    mode: 'development',
 
-    // TODO: why is this not specified in TypeScript docs?
-    entry: './src/index.tsx',
+    devtool: 'source-map',
 
-    // Enable sourcemaps for debugging webpack's output.
-    // TODO: why do TypeScript docs use `source-map` instead?
-    devtool: 'inline-source-map',
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js']
+    },
 
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/
+                test: /\.t|jsx?$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            [
+                                '@babel/env',
+                                { targets: { browsers: 'last 2 versions' }}
+                            ],
+                            '@babel/typescript',
+                            '@babel/react'
+                        ]
+                    }
+                }
             }
         ]
-    },
-
-    resolve: {
-        extensions: ['.tsx', '.ts', '.js']
     },
 
     output: {

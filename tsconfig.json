@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "strict": true,
+    "module": "commonjs",
+    "target": "esnext",
+    "jsx": "react",
+    "allowJs": true,
+    // Don't emit, let Babel take care of transformation
+    "noEmit": true
+  },
+  "include": [
+    "src"
+  ]
+}
