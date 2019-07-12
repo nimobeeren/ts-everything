@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
@@ -42,7 +41,7 @@ module.exports = {
             }
         ]
     },
-    plugins: [new ForkTsCheckerWebpackPlugin(), new webpack.NamedModulesPlugin(), new HtmlWebpackPlugin()]
+    plugins: [new ForkTsCheckerWebpackPlugin(), new HtmlWebpackPlugin()]
 
     // TODO: TypeScript docs use `externals` as an optimization for loading React, is this useful?
     // TODO: see Webpack docs -> Build Performance (link at the bottom of the TypeScript section)
