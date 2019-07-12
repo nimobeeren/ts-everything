@@ -1,4 +1,5 @@
-* HMR: now with Koa
+* test babel olyfill (is it needed?) and check other differences with typescript example webpack config
+* HMR: with hooks (need React-fire-DOM)
 * Production
 * Webpack HTML plugin
 * Babel/TS on back-end?

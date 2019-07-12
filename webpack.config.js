@@ -8,7 +8,8 @@ module.exports = {
     entry: ['./src/index'],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js'
+        filename: '[name].js',
+        publicPath: '/'
     },
     devtool: false,
     resolve: {
