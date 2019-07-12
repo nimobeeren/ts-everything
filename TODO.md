@@ -1,4 +1,4 @@
-* HMR
+* HMR: now with Koa
 * Production
 * Webpack HTML plugin
 * Babel/TS on back-end?

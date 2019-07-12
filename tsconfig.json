@@ -1,15 +1,11 @@
 {
   "compilerOptions": {
+    "outDir": "./dist/",
     "sourceMap": true,
-    "strict": true,
+    "noImplicitAny": true,
     "module": "commonjs",
-    "target": "esnext",
-    "jsx": "react",
-    "allowJs": true,
-    // Don't emit, let Babel take care of transformation
-    "noEmit": true
+    "target": "es6",
+    "jsx": "react"
   },
-  "include": [
-    "src"
-  ]
+  "include": ["./src/**/*"]
 }
