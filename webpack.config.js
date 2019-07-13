@@ -12,7 +12,13 @@ module.exports = {
     },
     devtool: false,
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.jsx']
+        extensions: ['.ts', '.tsx', '.js', '.jsx'],
+        alias: {
+            // Optimization for loading React
+            react: path.resolve(path.join(__dirname, './node_modules/react')),
+            // Patch for extra hot loader features
+            'react-dom': '@hot-loader/react-dom'
+        }
     },
     module: {
         rules: [
@@ -42,7 +48,4 @@ module.exports = {
         ]
     },
     plugins: [new ForkTsCheckerWebpackPlugin(), new HtmlWebpackPlugin()]
-
-    // TODO: TypeScript docs use `externals` as an optimization for loading React, is this useful?
-    // TODO: see Webpack docs -> Build Performance (link at the bottom of the TypeScript section)
 };
