@@ -38,8 +38,7 @@ module.exports = {
             ],
             plugins: [
               ['@babel/proposal-class-properties', { loose: true }], 
-              'react-hot-loader/babel',
-              'asdf'
+              'react-hot-loader/babel'
               ]
           }
         }

@@ -1,4 +1,3 @@
-* Fix ESLint errors
 * Production/Build performance
 * Move all config files to `/config` dir
 * Babel/TS on back-end?
