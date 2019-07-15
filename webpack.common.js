@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
   entry: ['./src/index'],
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -17,8 +16,6 @@ module.exports = {
     alias: {
       // Optimization for loading React.
       react: path.resolve(path.join(__dirname, './node_modules/react')),
-      // Patch for extra HMR features.
-      'react-dom': '@hot-loader/react-dom'
     }
   },
   module: {
@@ -39,7 +36,7 @@ module.exports = {
             plugins: [
               ['@babel/proposal-class-properties', { loose: true }], 
               'react-hot-loader/babel'
-              ]
+            ]
           }
         }
       }

@@ -6,10 +6,21 @@
         {
             "type": "npm",
             "script": "start",
+            "problemMatcher": []
+        },
+        {
+            "type": "npm",
+            "script": "build",
+            "problemMatcher": [],
             "group": {
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "type": "npm",
+            "script": "prod",
+            "problemMatcher": []
         }
     ]
 }

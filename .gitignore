@@ -5,5 +5,5 @@ node_modules
 .idea/
 *.iml
 
-# Webpack bundles
-dist/*bundle.js
+# Build files
+dist/
