@@ -1,8 +1,9 @@
-* Testing: ts-jest
-* Only convert to CommonJS modules when needed (for testing or otherwise)
-* Two packages for client/server? Use lerna
+* Testing: React components
+* Testing: only convert to CommonJS modules when needed (for testing or otherwise)
+* Testing: choose fewer coverage reporters
 * GraphQL
 * Emotion
+* Two packages for client/server? Use lerna
 * SSR?
 * Code splitting
 
