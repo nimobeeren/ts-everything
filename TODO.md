@@ -1,4 +1,6 @@
-* Testing
+* Testing: ts-jest
+* Only convert to CommonJS modules when needed (for testing or otherwise)
+* Two packages for client/server? Use lerna
 * GraphQL
 * Emotion
 * SSR?

@@ -1,4 +1,3 @@
-/* eslint-disable */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
@@ -15,7 +14,7 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
     alias: {
       // Optimization for loading React.
-      react: path.resolve(path.join(__dirname, './node_modules/react')),
+      react: path.resolve(path.join(__dirname, './node_modules/react'))
     }
   },
   module: {
@@ -26,17 +25,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            cacheDirectory: true,
-            babelrc: false,
-            presets: [
-              ['@babel/env', { targets: { browsers: 'last 2 versions' } }],
-              '@babel/typescript',
-              '@babel/react'
-            ],
-            plugins: [
-              ['@babel/proposal-class-properties', { loose: true }], 
-              'react-hot-loader/babel'
-            ]
+            cacheDirectory: true
           }
         }
       }

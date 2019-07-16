@@ -1,0 +1,11 @@
+{
+  "presets": [
+    ["@babel/env", { "targets": { "browsers": "last 2 versions" } }], 
+    "@babel/typescript",
+    "@babel/react"
+  ],
+  "plugins": [
+    // Transform ES modules to CommonJS for Jest support.
+    ["@babel/plugin-transform-modules-commonjs", { "loose": true }]
+  ]
+}

@@ -1,5 +1,5 @@
 # Node modules
-node_modules
+node_modules/
 
 # IntelliJ files
 .idea/
@@ -7,3 +7,6 @@ node_modules
 
 # Build files
 dist/
+
+# Coverage reports
+coverage/

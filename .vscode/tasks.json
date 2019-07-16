@@ -19,8 +19,16 @@
         },
         {
             "type": "npm",
-            "script": "prod",
+            "script": "start:prod",
             "problemMatcher": []
+        },
+        {
+            "type": "npm",
+            "script": "test",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
         }
     ]
 }
