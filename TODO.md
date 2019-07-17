@@ -1,9 +1,11 @@
-* Testing: React components
+* Testing: simulate user actions
 * Testing: only convert to CommonJS modules when needed (for testing or otherwise)
 * Testing: choose fewer coverage reporters
 * GraphQL
 * Emotion
 * Two packages for client/server? Use lerna
+* Falcon babel preset?
+* Back-end testing
 * SSR?
 * Code splitting
 
