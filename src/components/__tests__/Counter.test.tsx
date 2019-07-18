@@ -4,24 +4,20 @@ import { Counter } from '../Counter';
 
 describe('<Counter />', () => {
   test('renders without exploding', () => {
-    const wrapper = mount(<Counter />);
+    const wrapper = shallow(<Counter />);
     expect(wrapper).not.toBeNull();
   });
 
-  test('displays the correct count', done => {
-    const wrapper = shallow(<Counter />);
+  test('displays the correct count', () => {
+    const wrapper = mount(<Counter />);
     const button = wrapper.find('button');
-    const countElem = wrapper.find('span.count');
-    const countHTML = (value: number) => `<span class="count">${value}</span>`;
+    const count = wrapper.find('span');
 
     expect(button).toHaveLength(1);
-    expect(countElem).toHaveLength(1);
+    expect(count).toHaveLength(1);
 
-    expect(countElem.html()).toBe(countHTML(0));
-    // TODO: simulate button click
-    setImmediate(() => {
-      expect(countElem.html()).toBe(countHTML(1));
-      done();
-    });
+    expect(count.text()).toEqual('0');
+    button.simulate('click');
+    expect(count.text()).toEqual('1');
   });
 });

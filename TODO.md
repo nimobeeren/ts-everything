@@ -1,4 +1,3 @@
-* Testing: simulate user actions
 * Testing: only convert to CommonJS modules when needed (for testing or otherwise)
 * Testing: choose fewer coverage reporters
 * GraphQL
