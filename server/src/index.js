@@ -2,13 +2,15 @@ const path = require('path');
 const Koa = require('koa');
 const koaWebpack = require('koa-webpack');
 const serve = require('koa-static');
-const webpackDevConfig = require('./webpack.dev');
-const webpackProdConfig = require('./webpack.prod');
+const Router = require('koa-router');
+const webpackDevConfig = require('../../webpack.dev');
+const webpackProdConfig = require('../../webpack.prod');
 
 const PORT = process.env.PORT || 3000;
 
 async function start() {
   const app = new Koa();
+  const router = new Router();
 
   if (process.env.NODE_ENV !== 'production') {
     // Use middleware to support HMR.
@@ -29,7 +31,7 @@ async function start() {
     app.use(serve(path.resolve(staticPath)));
   }
 
-  await app.listen(PORT);
+  app.listen(PORT);
   console.log(`Server listening on port ${PORT}`);
 }
 

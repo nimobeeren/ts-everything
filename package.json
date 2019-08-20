@@ -7,8 +7,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "node server.js",
-    "start:prod": "NODE_ENV=production node server.js",
+    "start": "node server/src",
+    "start:prod": "NODE_ENV=production node server/src",
     "build": "webpack --config webpack.prod.js",
     "test": "jest"
   },
@@ -42,7 +42,10 @@
   },
   "dependencies": {
     "@hot-loader/react-dom": "^16.8.6",
+    "apollo-server-koa": "^2.7.0",
+    "graphql": "^14.4.2",
     "koa": "^2.7.0",
+    "koa-router": "^7.4.0",
     "koa-webpack": "^5.2.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

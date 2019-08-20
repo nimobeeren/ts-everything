@@ -1,5 +1,6 @@
 * GraphQL
 * Emotion
+* Snapshot testing
 * Two packages for client/server? Use lerna
 * Falcon babel preset?
 * Back-end testing
