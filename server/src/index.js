@@ -1,12 +1,12 @@
-const path = require('path');
-const fs = require('fs');
-const Koa = require('koa');
-const koaWebpack = require('koa-webpack');
-const serve = require('koa-static');
-const { ApolloServer } = require('apollo-server-koa');
-const webpackDevConfig = require('../../webpack.dev');
-const webpackProdConfig = require('../../webpack.prod');
-const resolvers = require('./api');
+import path from 'path';
+import fs from 'fs';
+import Koa from 'koa';
+import koaWebpack from 'koa-webpack';
+import serve from 'koa-static';
+import { ApolloServer } from 'apollo-server-koa';
+import webpackDevConfig from '../../webpack.dev';
+import webpackProdConfig from '../../webpack.prod';
+import { resolvers } from './api';
 
 const PORT = process.env.PORT || 3000;
 
@@ -20,7 +20,7 @@ async function start() {
 
   // Serve client
   if (process.env.NODE_ENV !== 'production') {
-    // Use middleware to support HMR.
+    // Use middleware to support HMR
     const devMiddleware = await koaWebpack({ config: webpackDevConfig });
     app.use(devMiddleware);
 
