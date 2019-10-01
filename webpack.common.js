@@ -13,7 +13,7 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
     alias: {
-      // Optimization for loading React.
+      // Optimization for loading React
       react: path.resolve(path.join(__dirname, './node_modules/react'))
     }
   },

@@ -5,7 +5,7 @@
     "@babel/react"
   ],
   "plugins": [
-    // Transform ES modules to CommonJS for Jest support.
+    // Transform ES modules to CommonJS for Jest support
     // TODO: only do this in test environment
     ["@babel/plugin-transform-modules-commonjs", { "loose": true }]
   ]
