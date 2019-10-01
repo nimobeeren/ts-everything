@@ -1,3 +1,7 @@
+type Query {
+  videos: [Video!]!
+}
+
 type Video {
   title: String
   path: String
