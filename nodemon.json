@@ -1,0 +1,4 @@
+{
+  "ext": "js,ts,graphql",
+  "watch": "server"
+}
