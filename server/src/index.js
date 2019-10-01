@@ -2,16 +2,37 @@ const path = require('path');
 const Koa = require('koa');
 const koaWebpack = require('koa-webpack');
 const serve = require('koa-static');
-const Router = require('koa-router');
+const { ApolloServer, gql } = require('apollo-server-koa');
 const webpackDevConfig = require('../../webpack.dev');
 const webpackProdConfig = require('../../webpack.prod');
+
+const typeDefs = gql`
+  type Video {
+    title: String
+    path: String
+  }
+
+  type Query {
+    videos: [Video!]!
+  }
+`;
+
+const resolvers = {
+  Query: {
+    videos: () => [{ title: 'Hello World', path: '/hello/world.mp4' }]
+  }
+};
 
 const PORT = process.env.PORT || 3000;
 
 async function start() {
   const app = new Koa();
-  const router = new Router();
 
+  // Register API middleware
+  const server = new ApolloServer({ typeDefs, resolvers });
+  server.applyMiddleware({ app });
+
+  // Serve client
   if (process.env.NODE_ENV !== 'production') {
     // Use middleware to support HMR.
     const devMiddleware = await koaWebpack({ config: webpackDevConfig });
@@ -32,7 +53,7 @@ async function start() {
   }
 
   app.listen(PORT);
-  console.log(`Server listening on port ${PORT}`);
+  console.info(`🚀 Server listening on port ${PORT}`);
 }
 
 start();
