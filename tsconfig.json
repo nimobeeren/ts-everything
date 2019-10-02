@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
-    "sourceMap": true,
+    // We only use the TypeScript compiler for type checking, transpiling is handled by Babel
+    "noEmit": true,
     "noImplicitAny": true,
     "module": "commonjs",
-    "target": "es6",
     "jsx": "react",
     "esModuleInterop": true
   },
