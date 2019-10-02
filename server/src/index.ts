@@ -10,7 +10,7 @@ import { resolvers } from './api';
 
 const PORT = process.env.PORT || 3000;
 
-async function start() {
+async function start(): Promise<void> {
   const app = new Koa();
 
   // Register API middleware
