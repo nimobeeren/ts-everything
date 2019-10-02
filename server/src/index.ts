@@ -4,8 +4,8 @@ import Koa from 'koa';
 import koaWebpack from 'koa-webpack';
 import serve from 'koa-static';
 import { ApolloServer } from 'apollo-server-koa';
-import { webpackDevConfig } from '../../webpack.dev';
-import { webpackProdConfig } from '../../webpack.prod';
+import webpackDevConfig from './webpack.dev';
+import webpackProdConfig from './webpack.prod';
 import { resolvers } from './api';
 
 const PORT = process.env.PORT || 3000;

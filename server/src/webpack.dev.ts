@@ -1,8 +1,8 @@
 import merge from 'webpack-merge';
-import { Configuration } from 'webpack';
-import { webpackCommonConfig } from './webpack.common';
+import webpack from 'webpack';
+import common from './webpack.common';
 
-export const webpackDevConfig: Configuration = merge(webpackCommonConfig, {
+const dev = merge(common, {
   mode: 'development',
   resolve: {
     alias: {
@@ -11,3 +11,5 @@ export const webpackDevConfig: Configuration = merge(webpackCommonConfig, {
     }
   }
 });
+
+export default dev;

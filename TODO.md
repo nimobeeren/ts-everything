@@ -1,4 +1,3 @@
-* Don't use babel-node in production
 * Falcon babel preset?
 * Emotion
 * Theming/design system

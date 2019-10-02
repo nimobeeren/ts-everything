@@ -1,7 +1,8 @@
 # Node modules
 node_modules/
 
-# IntelliJ files
+# IDE files
+.vscode/
 .idea/
 *.iml
 
@@ -10,3 +11,6 @@ dist/
 
 # Coverage reports
 coverage/
+
+# Log files
+*.log

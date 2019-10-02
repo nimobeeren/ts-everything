@@ -8,11 +8,19 @@
   "private": true,
   "scripts": {
     "start": "nodemon server/src/index.ts",
-    "start:prod": "NODE_ENV=production babel-node --extensions '.ts','.js' server/src/index.ts",
-    "build": "webpack --config webpack.prod.js",
-    "test": "jest"
+    "serve": "NODE_ENV=production node server/dist",
+    "build": "concurrently yarn:build-*",
+    "build-client": "webpack --config server/src/webpack.prod.ts",
+    "build-server": "babel -d server/dist -x '.ts','.js' server/src && cp server/src/*.graphql server/dist",
+    "test": "jest",
+    "clean": "rimraf **/dist"
+  },
+  "engines": {
+    "node": "^11.15",
+    "yarn": "^1.19.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.6.2",
     "@babel/core": "^7.5.4",
     "@babel/node": "^7.6.2",
     "@babel/plugin-proposal-class-properties": "^7.5.0",
@@ -32,6 +40,7 @@
     "@types/webpack-merge": "^4.1.5",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
+    "concurrently": "^4.1.2",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^5.3.0",
@@ -40,6 +49,7 @@
     "jest": "^24.8.0",
     "koa-static": "^5.0.0",
     "nodemon": "^1.19.3",
+    "rimraf": "^3.0.0",
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.2",
     "webpack": "^4.35.0",
