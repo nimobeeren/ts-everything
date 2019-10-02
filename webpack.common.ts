@@ -1,8 +1,9 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import { Configuration } from 'webpack';
 
-module.exports = {
+export const webpackCommonConfig: Configuration = {
   entry: ['./client/src/index'],
   output: {
     path: path.resolve(__dirname, 'client', 'dist'),

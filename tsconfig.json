@@ -8,5 +8,5 @@
     "jsx": "react",
     "esModuleInterop": true
   },
-  "include": ["client/src/**/*"]
+  "include": ["**/src/**/*"]
 }
