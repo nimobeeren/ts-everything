@@ -18,11 +18,12 @@ async function start(): Promise<void> {
   // Serve static client build in production
   if (process.env.NODE_ENV === 'production') {
     console.log('Running in production mode');
-    app.use(serve(path.resolve('dist')));
+    const staticPath = path.resolve(__dirname, '../../client/dist');
+    app.use(serve(staticPath));
   }
 
   app.listen(PORT);
-  console.info(`🚀 Server listening on port ${PORT}`);
+  console.info(`🚀  Server listening on port ${PORT}`);
 }
 
 start();

@@ -8,13 +8,13 @@
   "private": true,
   "scripts": {
     "build": "concurrently yarn:build-*",
-    "build-client": "parcel build client/src/index.html",
-    "build-server": "babel -d server/dist -x '.ts','.js' server/src && cp server/src/*.graphql server/dist",
-    "clean": "rimraf **/dist *.log",
+    "build-client": "parcel build client/src/index.html -d client/dist",
+    "build-server": "parcel build server/src/index.ts -d server/dist --target node && cp server/src/*.graphql server/dist",
+    "clean": "rimraf .cache **/dist *.log",
     "start": "concurrently yarn:start-*",
     "start-client": "parcel client/src/index.html",
     "start-server": "babel-node --extensions '.ts','.js' server/src",
-    "start:prod": "NODE_ENV=production node server/dist",
+    "serve": "NODE_ENV=production node server/dist",
     "test": "jest"
   },
   "engines": {
@@ -50,6 +50,7 @@
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.9.0",
     "koa-static": "^5.0.0",
+    "node-dev": "^4.0.0",
     "nodemon": "^1.19.3",
     "parcel": "^1.12.3",
     "rimraf": "^3.0.0",
