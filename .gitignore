@@ -8,6 +8,7 @@ node_modules/
 
 # Build files
 dist/
+.cache/
 
 # Coverage reports
 coverage/

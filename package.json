@@ -7,13 +7,13 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "nodemon server/src/index.ts",
-    "serve": "NODE_ENV=production node server/dist",
     "build": "concurrently yarn:build-*",
     "build-client": "webpack --config server/src/webpack.prod.ts",
     "build-server": "babel -d server/dist -x '.ts','.js' server/src && cp server/src/*.graphql server/dist",
-    "test": "jest",
-    "clean": "rimraf **/dist"
+    "clean": "rimraf **/dist",
+    "serve": "NODE_ENV=production node server/dist",
+    "start": "parcel client/src/index.html",
+    "test": "jest"
   },
   "engines": {
     "node": "^11.15",
@@ -49,6 +49,7 @@
     "jest": "^24.9.0",
     "koa-static": "^5.0.0",
     "nodemon": "^1.19.3",
+    "parcel": "^1.12.3",
     "rimraf": "^3.0.0",
     "ts-jest": "^24.1.0",
     "typescript": "^3.6.3",
@@ -64,7 +65,7 @@
     "koa-router": "^7.4.0",
     "koa-webpack": "^5.2.4",
     "react": "^16.10.1",
-    "react-dom": "^16.10.1",
+    "react-dom": "npm:@hot-loader/react-dom",
     "react-hot-loader": "^4.12.14"
   }
 }

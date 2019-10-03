@@ -1,7 +1,7 @@
-import { hot } from 'react-hot-loader/root';
+import { hot } from 'react-hot-loader';
 import React from 'react';
 import { Counter } from './Counter';
 
 const App = () => <Counter />;
 
-export default hot(App);
+export default hot(module)(App);
