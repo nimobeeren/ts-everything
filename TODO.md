@@ -1,5 +1,5 @@
+* Type checking in development mode
 * Add yarn lint script
-* Replace Webpack with Parcel?
 * Emotion
 * Theming/design system
 * GraphQL schema type generation
