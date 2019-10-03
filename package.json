@@ -8,11 +8,13 @@
   "private": true,
   "scripts": {
     "build": "concurrently yarn:build-*",
-    "build-client": "webpack --config server/src/webpack.prod.ts",
+    "build-client": "parcel build client/src/index.html",
     "build-server": "babel -d server/dist -x '.ts','.js' server/src && cp server/src/*.graphql server/dist",
-    "clean": "rimraf **/dist",
-    "serve": "NODE_ENV=production node server/dist",
-    "start": "parcel client/src/index.html",
+    "clean": "rimraf **/dist *.log",
+    "start": "concurrently yarn:start-*",
+    "start-client": "parcel client/src/index.html",
+    "start-server": "babel-node --extensions '.ts','.js' server/src",
+    "start:prod": "NODE_ENV=production node server/dist",
     "test": "jest"
   },
   "engines": {
