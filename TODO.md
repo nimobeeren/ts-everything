@@ -1,5 +1,3 @@
-* Fix unresolved module for GQL schema
-* Add yarn lint script
 * Emotion
 * Theming/design system
 * GraphQL schema type generation
