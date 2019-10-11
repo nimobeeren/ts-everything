@@ -1,4 +1,4 @@
-* Type checking in development mode
+* Fix unresolved module for GQL schema
 * Add yarn lint script
 * Emotion
 * Theming/design system

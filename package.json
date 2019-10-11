@@ -10,6 +10,7 @@
     "build": "concurrently yarn:build-*",
     "build-client": "parcel build client/src/index.html -d client/dist",
     "build-server": "parcel build server/src/index.ts -d server/dist --target node",
+    "check-types": "tsc",
     "clean": "rimraf .cache **/dist *.log",
     "serve": "NODE_ENV=production node server/dist",
     "start": "concurrently yarn:start-*",
