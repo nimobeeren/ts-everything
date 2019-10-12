@@ -1,8 +1,8 @@
 type Query {
-  videos: [Video!]!
+  files: [File!]!
 }
 
-type Video {
+type File {
   title: String
   path: String
 }
