@@ -1,7 +1,7 @@
 import { hot } from 'react-hot-loader';
 import React from 'react';
-import { Counter } from './Counter';
+import { FileList } from './FileList';
 
-const App = () => <Counter />;
+const App = () => <FileList />;
 
 export default hot(module)(App);
