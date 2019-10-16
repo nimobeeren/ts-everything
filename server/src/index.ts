@@ -2,10 +2,11 @@ import path from 'path';
 import Koa from 'koa';
 import serve from 'koa-static';
 import { ApolloServer } from 'apollo-server-koa';
+import cors from '@koa/cors';
 import typeDefs from './schema.graphql';
 import { resolvers } from './api';
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 async function start(): Promise<void> {
   const app = new Koa();
@@ -13,6 +14,9 @@ async function start(): Promise<void> {
   // Register API middleware
   const server = new ApolloServer({ typeDefs, resolvers });
   server.applyMiddleware({ app });
+
+  // Enable CORS to allow access from other origin
+  app.use(cors());
 
   // Serve static client build in production
   if (process.env.NODE_ENV === 'production') {
