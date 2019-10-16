@@ -1,4 +1,3 @@
-* Connect front/back-end
 * Fix server/dist not found on start-server
 * Emotion
 * Theming/design system
