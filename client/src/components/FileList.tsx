@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
+import { File } from '../../../server/src/types';
 
 const GET_FILES = gql`
   query Files {
@@ -10,11 +11,6 @@ const GET_FILES = gql`
     }
   }
 `;
-
-type File = {
-  title?: string;
-  path?: string;
-};
 
 export const FileList = () => {
   const { data, loading, error } = useQuery(GET_FILES);

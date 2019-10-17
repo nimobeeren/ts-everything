@@ -1,0 +1,13 @@
+{
+   "schema": "./server/src/schema.graphql",
+   "generates": {
+      "./server/src/types.ts": {
+         "hooks": {
+            "afterOneFileWrite": "eslint --fix"
+         },
+         "plugins": [
+            "typescript"
+         ]
+      }
+   }
+}
