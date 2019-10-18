@@ -1,19 +1,8 @@
 import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
-import { File } from '../../../server/src/types';
-
-const GET_FILES = gql`
-  query Files {
-    files {
-      title
-      path
-    }
-  }
-`;
+import { useFileListQuery } from '../graphql';
 
 export const FileList = () => {
-  const { data, loading, error } = useQuery(GET_FILES);
+  const { data, loading, error } = useFileListQuery();
   if (loading) {
     return <p>Loading</p>;
   }
@@ -24,7 +13,7 @@ export const FileList = () => {
 
   return (
     <ul>
-      {data.files.map((file: File) => (
+      {data.files.map(file => (
         <li key={file.path}>
           {file.title} (<i>{file.path}</i>)
         </li>

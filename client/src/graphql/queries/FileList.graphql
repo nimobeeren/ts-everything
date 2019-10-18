@@ -1,0 +1,6 @@
+query FileList {
+  files {
+    title
+    path
+  }
+}

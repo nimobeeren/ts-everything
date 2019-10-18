@@ -1,3 +1,4 @@
+* Fix lint errors in generated code
 * Fix server/dist not found on start-server
 * Emotion
 * Theming/design system

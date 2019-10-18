@@ -1,13 +1,21 @@
 {
    "schema": "./server/src/schema.graphql",
+   "documents": "./client/src/**/*.graphql",
    "generates": {
-      "./server/src/types.ts": {
+      "./client/src/graphql/index.tsx": {
+         "plugins": [
+            "typescript",
+            "typescript-operations",
+            "typescript-react-apollo"
+         ],
+         "config": {
+            "withHooks": true,
+            "withComponent": false,
+            "withHOC": false
+         },
          "hooks": {
             "afterOneFileWrite": "eslint --fix"
-         },
-         "plugins": [
-            "typescript"
-         ]
+         }
       }
    }
 }
