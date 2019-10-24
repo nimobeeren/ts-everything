@@ -1,2 +1,5 @@
 # Build files
 dist/
+
+# Generated code
+client/src/graphql/**

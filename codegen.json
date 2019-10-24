@@ -14,7 +14,7 @@
             "withHOC": false
          },
          "hooks": {
-            "afterOneFileWrite": "eslint --fix"
+            "afterOneFileWrite": "eslint --fix --no-ignore"
          }
       }
    }
