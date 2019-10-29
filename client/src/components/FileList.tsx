@@ -1,8 +1,14 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import { useFileListQuery } from '../graphql';
+
+const StyledFileList = styled.ul`
+  color: darkorchid;
+`;
 
 export const FileList = () => {
   const { data, loading, error } = useFileListQuery();
+
   if (loading) {
     return <p>Loading</p>;
   }
@@ -12,12 +18,12 @@ export const FileList = () => {
   }
 
   return (
-    <ul>
+    <StyledFileList>
       {data.files.map(file => (
         <li key={file.path}>
           {file.title} (<i>{file.path}</i>)
         </li>
       ))}
-    </ul>
+    </StyledFileList>
   );
 };

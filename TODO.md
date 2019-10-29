@@ -1,5 +1,4 @@
 * Fix server/dist not found on start-server
-* Emotion
 * Theming/design system
 * Snapshot testing
 * Back-end testing
