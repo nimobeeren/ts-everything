@@ -11,7 +11,7 @@
     "build-client": "parcel build client/src/index.html -d client/dist",
     "build-server": "parcel build server/src/index.ts -d server/dist --target node",
     "check-types": "tsc",
-    "clean": "rimraf .cache **/dist *.log",
+    "clean": "rimraf .cache coverage **/dist *.log",
     "generate": "graphql-codegen",
     "lint": "eslint --ext ts,tsx,js .",
     "serve": "NODE_ENV=production node server/dist",
