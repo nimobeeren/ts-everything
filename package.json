@@ -46,6 +46,7 @@
     "@types/react-dom": "^16.9.1",
     "babel-jest": "^24.9.0",
     "concurrently": "^4.1.2",
+    "emotion-theming": "^10.0.19",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^6.5.1",

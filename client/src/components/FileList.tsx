@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { useFileListQuery } from '../graphql';
 
 const StyledFileList = styled.ul`
-  color: darkorchid;
+  color: ${props => props.theme.colors.primary};
 `;
 
 export const FileList = () => {

@@ -4,6 +4,8 @@ import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
 import { ApolloProvider } from '@apollo/react-hooks';
+import { ThemeProvider } from 'emotion-theming';
+import { theme } from './theme';
 import App from './components/App';
 
 // Create Apollo client
@@ -21,7 +23,9 @@ document.body.appendChild(root);
 
 render(
   <ApolloProvider client={client}>
-    <App />
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   </ApolloProvider>,
   root
 );
