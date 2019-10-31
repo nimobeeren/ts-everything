@@ -1,13 +1,14 @@
 export const theme = {
   colors: {
     primary: 'dodgerblue',
-    black: 'black'
+    positive: 'white',
+    negative: 'black'
   },
   fonts: {
     sans: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
     mono: 'Courier New, monospace'
   },
-  borderRadius: {
+  borderRadii: {
     none: 0,
     small: 4,
     medium: 8,
@@ -19,7 +20,7 @@ export const theme = {
 export const global = {
   body: {
     color: theme.colors.primary,
-    backgroundColor: theme.colors.black,
+    backgroundColor: theme.colors.negative,
     fontFamily: theme.fonts.sans
   }
 };

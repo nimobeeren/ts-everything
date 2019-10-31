@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import { styled } from '../theme';
 import { useFileListQuery } from '../graphql';
 
 const StyledFileList = styled.ul`
