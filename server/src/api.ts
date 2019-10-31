@@ -1,3 +1,6 @@
+/**
+ * GraphQL resolvers.
+ */
 export const resolvers = {
   Query: {
     files: () => [

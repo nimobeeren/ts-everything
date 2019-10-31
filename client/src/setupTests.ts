@@ -1,6 +1,7 @@
-import { configure as configureEnzyme } from 'enzyme';
+import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-configureEnzyme({ adapter: new Adapter() });
+Enzyme.configure({ adapter: new Adapter() });
 
+// Mock `fetch` for Apollo client
 window.fetch = () => Promise.resolve(new Response());

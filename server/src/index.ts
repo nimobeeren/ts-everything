@@ -15,7 +15,7 @@ async function start(): Promise<void> {
   const server = new ApolloServer({ typeDefs, resolvers });
   server.applyMiddleware({ app });
 
-  // Enable CORS to allow access from other origin
+  // Enable CORS to allow access from client
   app.use(cors());
 
   // Serve static client build in production

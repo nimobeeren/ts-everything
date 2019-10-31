@@ -12,6 +12,7 @@ import { FileList } from './FileList';
 // Create Apollo client
 const cache = new InMemoryCache();
 const link = new HttpLink({
+  // Connect to our server
   uri: 'http://localhost:4000/graphql'
 });
 const client = new ApolloClient({

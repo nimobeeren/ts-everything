@@ -1,3 +1,6 @@
+/**
+ * Defines commonly used styling values.
+ */
 export const theme = {
   colors: {
     primary: 'dodgerblue',
@@ -10,13 +13,16 @@ export const theme = {
   },
   borderRadii: {
     none: 0,
-    small: 4,
-    medium: 8,
-    large: 16,
-    round: 99999
+    small: '4px',
+    medium: '8px',
+    large: '16px',
+    round: '99999px'
   }
 };
 
+/**
+ * Global CSS rules.
+ */
 export const global = {
   body: {
     color: theme.colors.primary,
