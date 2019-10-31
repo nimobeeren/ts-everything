@@ -1,3 +1,5 @@
+import { Interpolation } from '@emotion/core';
+
 /**
  * Defines commonly used styling values.
  */
@@ -23,7 +25,7 @@ export const theme = {
 /**
  * Global CSS rules.
  */
-export const global = {
+export const global: Interpolation = {
   body: {
     color: theme.colors.primary,
     backgroundColor: theme.colors.negative,

@@ -20,7 +20,7 @@ const client = new ApolloClient({
   link
 });
 
-const App = () => (
+const App: React.FC = () => (
   <ApolloProvider client={client}>
     <Global styles={global} />
     <ThemeProvider theme={theme}>

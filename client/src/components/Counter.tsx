@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export function Counter() {
+export const Counter: React.FC = () => {
   const [count, setCount] = useState(0);
 
   const incrementCounter = () => {
@@ -17,4 +17,4 @@ export function Counter() {
       </button>
     </div>
   );
-}
+};

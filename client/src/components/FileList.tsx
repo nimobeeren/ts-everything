@@ -6,7 +6,7 @@ const StyledFileList = styled.ul`
   color: ${props => props.theme.colors.primary};
 `;
 
-export const FileList = () => {
+export const FileList: React.FC = () => {
   const { data, loading, error } = useFileListQuery();
 
   if (loading) {

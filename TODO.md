@@ -5,4 +5,3 @@
 * Fix server/dist not found on start-server
 * SSR?
 * Code splitting
-* Add types where possible
