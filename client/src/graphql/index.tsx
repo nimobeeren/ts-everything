@@ -1,8 +1,15 @@
+/*
+ * This is GENERATED CODE, do not modify!
+ *
+ * In this file we provide TypeScript types for all types in the GraphQL schema.
+ * When you make changes to your GraphQL schema, you should regenerate this file using `yarn generate`.
+ */
 import gql from 'graphql-tag';
 import * as ApolloReactCommon from '@apollo/react-common';
 import * as ApolloReactHooks from '@apollo/react-hooks';
 
 export type Maybe<T> = T | null;
+
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
