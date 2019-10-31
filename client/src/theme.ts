@@ -18,6 +18,7 @@ export const theme = {
 
 export const global = {
   body: {
+    color: theme.colors.primary,
     backgroundColor: theme.colors.black,
     fontFamily: theme.fonts.sans
   }
