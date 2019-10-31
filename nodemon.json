@@ -1,5 +1,0 @@
-{
-  "ext": "js,ts,graphql",
-  "watch": "server/src",
-  "exec": "babel-node --extensions '.ts','.js'"
-}

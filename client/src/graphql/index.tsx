@@ -1,7 +1,7 @@
 /*
  * This is GENERATED CODE, do not modify!
  *
- * In this file we provide TypeScript types for all types in the GraphQL schema.
+ * In this file we provide TypeScript types and utilities for the GraphQL schema.
  * When you make changes to your GraphQL schema, you should regenerate this file using `yarn generate`.
  */
 import gql from 'graphql-tag';
