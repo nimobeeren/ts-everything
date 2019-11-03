@@ -3,12 +3,12 @@ import { mount, shallow } from 'enzyme';
 import { Counter } from '../Counter';
 
 describe('<Counter />', () => {
-  test('renders without exploding', () => {
+  it('renders without exploding', () => {
     const wrapper = shallow(<Counter />);
     expect(wrapper).not.toBeNull();
   });
 
-  test('displays the correct count', () => {
+  it('displays the correct count', () => {
     const wrapper = mount(<Counter />);
     const button = wrapper.find('button');
     const count = wrapper.find('span');

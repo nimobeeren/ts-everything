@@ -18,7 +18,7 @@ describe('Server', () => {
     server.close();
   });
 
-  test('responds to HTTP requests', async () => {
+  it('responds to HTTP requests', async () => {
     const response = await request(server).get('/');
     expect(response).not.toBeNull();
   });

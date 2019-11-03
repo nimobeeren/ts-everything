@@ -29,7 +29,7 @@ describe('<FileList />', () => {
     }
   ];
 
-  test('renders without exploding', () => {
+  it('renders without exploding', () => {
     const wrapper = shallow(
       <ThemeProvider theme={theme}>
         <MockedProvider>
@@ -41,7 +41,7 @@ describe('<FileList />', () => {
     expect(wrapper.first().is(FileList));
   });
 
-  test('renders loading state initially', () => {
+  it('renders loading state initially', () => {
     const wrapper = mount(
       <ThemeProvider theme={theme}>
         <MockedProvider mocks={mocks}>
@@ -53,7 +53,7 @@ describe('<FileList />', () => {
     expect(wrapper.text()).toContain('Loading');
   });
 
-  test('renders list of files', () =>
+  it('renders list of files', () =>
     act(async () => {
       const wrapper = mount(
         <ThemeProvider theme={theme}>
