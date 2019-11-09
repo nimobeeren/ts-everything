@@ -12,7 +12,7 @@ jest.mock('../FileList', () => ({
 }));
 
 describe('<FileListContainer />', () => {
-  const mocks: MockedResponse[] = [
+  const succesfulMocks: MockedResponse[] = [
     {
       request: {
         query: FileListDocument
@@ -31,10 +31,21 @@ describe('<FileListContainer />', () => {
       }
     }
   ];
+  const errorMocks: MockedResponse[] = [
+    {
+      request: {
+        query: FileListDocument
+      },
+      error: {
+        name: 'Error',
+        message: 'aw shucks'
+      }
+    }
+  ];
 
   it('renders without exploding', () => {
     const wrapper = mount(
-      <MockedProvider mocks={mocks}>
+      <MockedProvider mocks={succesfulMocks}>
         <FileListContainer />
       </MockedProvider>
     );
@@ -44,7 +55,7 @@ describe('<FileListContainer />', () => {
 
   it('renders loading state initially', () => {
     const wrapper = mount(
-      <MockedProvider mocks={mocks}>
+      <MockedProvider mocks={succesfulMocks}>
         <FileListContainer />
       </MockedProvider>
     );
@@ -52,10 +63,10 @@ describe('<FileListContainer />', () => {
     expect(wrapper.text()).toContain('Loading');
   });
 
-  it('renders a <FileList /> after loading', () =>
+  it('renders error state when query fails', () =>
     act(async () => {
       const wrapper = mount(
-        <MockedProvider mocks={mocks}>
+        <MockedProvider mocks={errorMocks}>
           <FileListContainer />
         </MockedProvider>
       );
@@ -63,7 +74,19 @@ describe('<FileListContainer />', () => {
       await wait();
       wrapper.update();
 
-      console.log(wrapper.debug());
+      expect(wrapper.text()).toContain('Error');
+    }));
+
+  it('renders a <FileList /> after loading', () =>
+    act(async () => {
+      const wrapper = mount(
+        <MockedProvider mocks={succesfulMocks}>
+          <FileListContainer />
+        </MockedProvider>
+      );
+
+      await wait();
+      wrapper.update();
 
       expect(wrapper.find(FileList)).toHaveLength(1);
     }));
