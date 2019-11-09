@@ -11,14 +11,8 @@ import { FileListContainer } from './FileListContainer';
 
 // Create Apollo client
 const cache = new InMemoryCache();
-const link = new HttpLink({
-  // Connect to our server
-  uri: 'http://localhost:4000/graphql'
-});
-const client = new ApolloClient({
-  cache,
-  link
-});
+const link = new HttpLink({ uri: 'http://localhost:4000/graphql' });
+const client = new ApolloClient({ cache, link });
 
 const App: React.FC = () => (
   <ApolloProvider client={client}>
