@@ -10,7 +10,7 @@ module.exports = {
   coverageReporters: ['html', 'text-summary'],
   moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'node'],
   preset: 'ts-jest', // enables type checking during tests
-  setupFilesAfterEnv: ['<rootDir>client/src/setupTests.ts'],
+  setupFilesAfterEnv: ['<rootDir>client/src/jest.setup.ts'],
   testEnvironment: 'jsdom',
   testMatch: [
     '**/src/**/__tests__/**/*.[jt]s?(x)',
