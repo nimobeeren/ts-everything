@@ -5,7 +5,7 @@ import wait from 'waait';
 import { MockedProvider, MockedResponse } from '@apollo/react-testing';
 import { FileListDocument } from '../../graphql';
 import { FileListContainer } from '../FileListContainer';
-import { FileList } from '../FileList';
+import { FileList } from '..';
 
 jest.mock('../FileList', () => ({
   FileList: () => <React.Fragment />
@@ -89,5 +89,6 @@ describe('<FileListContainer />', () => {
       wrapper.update();
 
       expect(wrapper.find(FileList)).toHaveLength(1);
+      // TODO: assert props correct props are passed to FileList
     }));
 });

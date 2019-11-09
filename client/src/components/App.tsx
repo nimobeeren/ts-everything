@@ -7,7 +7,7 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import { ThemeProvider } from 'emotion-theming';
 import { Global } from '@emotion/core';
 import { theme, global } from '../theme';
-import { FileListContainer } from './FileListContainer';
+import { FileListContainer } from '.';
 
 // Create Apollo client
 const cache = new InMemoryCache();

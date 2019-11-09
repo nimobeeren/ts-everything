@@ -1,6 +1,6 @@
 import React from 'react';
 import { useFileListQuery } from '../graphql';
-import { FileList } from './FileList';
+import { FileList } from '.';
 
 export const FileListContainer: React.FC = () => {
   const { data, loading, error } = useFileListQuery();
