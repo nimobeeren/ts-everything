@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from '../App';
-import { FileList } from '../FileList';
+import { FileListContainer } from '../FileListContainer';
 
 describe('<App />', () => {
   it('renders without exploding', () => {
@@ -11,6 +11,6 @@ describe('<App />', () => {
 
   it('renders a <Counter />', () => {
     const wrapper = shallow(<App />);
-    expect(wrapper.find(FileList)).toHaveLength(1);
+    expect(wrapper.find(FileListContainer)).toHaveLength(1);
   });
 });
