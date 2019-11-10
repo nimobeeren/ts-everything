@@ -18,7 +18,7 @@
     "start": "concurrently yarn:start-*",
     "start-client": "parcel client/src/index.html -d client/dist",
     "start-server": "parcel watch server/src/index.ts -d server/dist --target node & node-dev server/dist",
-    "test": "jest"
+    "test": "jest --config jest.config.json"
   },
   "engines": {
     "node": ">=11.15",
