@@ -22,4 +22,6 @@ describe('Server', () => {
     const response = await request(server).get('/');
     expect(response).not.toBeNull();
   });
+
+  // TODO: test some GraphQL requests
 });
