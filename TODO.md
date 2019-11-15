@@ -5,3 +5,5 @@
 * Code splitting
 * Bundle optimization (see Falcon babel preset)
 * Proper logging
+* Fix errors with eslint config dependencies
+* Prefix interfaces
