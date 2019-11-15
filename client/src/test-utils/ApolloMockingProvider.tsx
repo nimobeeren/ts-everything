@@ -11,20 +11,7 @@ interface ApolloMockingProviderProps {
 }
 
 export const ApolloMockingProvider: React.FC<ApolloMockingProviderProps> = ({ mocks, children }) => {
-  // TODO: allow overriding schema by prop?
-  // TODO: use imported schema
-  const schemaString = `
-    type Query {
-      files: [File!]!
-    }
-    
-    type File {
-      title: String
-      path: String
-    }
-  `;
-
-  const schema = makeExecutableSchema({ typeDefs: schemaString });
+  const schema = makeExecutableSchema({ typeDefs });
   addMockFunctionsToSchema({ schema, mocks });
 
   const mockedClient = new ApolloClient({

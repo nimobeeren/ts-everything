@@ -3,16 +3,29 @@ import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import wait from 'waait';
 import { QueryResult } from '@apollo/react-common';
-import { useFileListQuery, FileListQuery, FileListQueryVariables } from '../../graphql';
+import { useQuery } from '@apollo/react-hooks';
+import gql from 'graphql-tag';
 import { ApolloMockingProvider } from '../ApolloMockingProvider';
 
-// Helper component that executes a query by consuming Apollo context
-const Consumer: React.FC = () => <Child result={useFileListQuery()} />;
+jest.mock('../../../../server/src/schema.graphql');
 
-// Helper component that is used to inspect the query result
+const GET_FOO = gql`
+  query Foo {
+    foo
+  }
+`;
+type FooQuery = {
+  foo: string;
+};
+// Helper component that consumes Apollo context by executing a query
+const Consumer: React.FC = () => {
+  return <Child result={useQuery<FooQuery>(GET_FOO)} />;
+};
+
 interface ChildProps {
-  result: QueryResult<FileListQuery, FileListQueryVariables>;
+  result: QueryResult<FooQuery>;
 }
+// Helper component that is used to inspect the query result
 const Child: React.FC<ChildProps> = () => <React.Fragment />;
 
 describe('<ApolloMockingProvider />', () => {
@@ -34,7 +47,7 @@ describe('<ApolloMockingProvider />', () => {
   it('uses passed mocks', () =>
     act(async () => {
       const mocks = {
-        String: () => 'Baz'
+        String: () => 'bar'
       };
 
       const wrapper = mount(
@@ -49,7 +62,7 @@ describe('<ApolloMockingProvider />', () => {
       const child = wrapper.find(Child);
       const { data } = child.prop('result');
       expect(data).toBeDefined();
-      expect(data.files[0].title).toBe('Baz');
-      expect(data.files[0].path).toBe('Baz');
+      expect(data.foo).toBe('bar');
+      expect(data.foo).toBe('bar');
     }));
 });
