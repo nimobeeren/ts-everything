@@ -1,9 +1,9 @@
-const gql = require('graphql-tag');
+const fs = require('fs');
+const path = require('path');
+const { parse } = require('graphql');
 
-// Ideally, this file would be written completely in GraphQL SDL, just like the real schema
-// But since Jest does not use Parcel to load modules, we need to export a regular JS module
-module.exports = gql`
-  type Query {
-    foo: String
-  }
-`;
+// Fall back to reading the file as a string
+const filename = path.resolve(__dirname, '../schema.graphql');
+const schemaString = fs.readFileSync(filename, 'utf8');
+
+module.exports = parse(schemaString);

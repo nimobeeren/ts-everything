@@ -12,9 +12,9 @@
   "coverageReporters": [
     "html", "text-summary"
   ],
-  "moduleFileExtensions": [
-    "js", "json", "jsx", "ts", "tsx", "node"
-  ],
+  "moduleNameMapper": {
+    "schema\\.graphql$": "<rootDir>/server/src/__mocks__/schema.graphql"
+  },
   "preset": "ts-jest",
   "setupFilesAfterEnv": [
     "<rootDir>client/src/jest.setup.ts"

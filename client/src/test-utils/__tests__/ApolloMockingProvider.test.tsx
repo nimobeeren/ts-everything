@@ -7,7 +7,16 @@ import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import { ApolloMockingProvider } from '../ApolloMockingProvider';
 
-jest.mock('../../../../server/src/schema.graphql');
+// TODO: turn __mocks__/schema.graphql into an actual mock schema and use that instead
+// then use a Jest transform for loading .graphql files
+jest.mock(
+  '../../../../server/src/schema.graphql',
+  () => gql`
+    type Query {
+      foo: String
+    }
+  `
+);
 
 const GET_FOO = gql`
   query Foo {
