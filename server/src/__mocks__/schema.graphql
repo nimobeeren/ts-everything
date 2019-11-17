@@ -1,9 +1,3 @@
-const gql = require('graphql-tag');
-
-// Ideally, this file would be written completely in GraphQL SDL, just like the real schema
-// But since Jest does not use Parcel to load modules, we need to export a regular JS module
-module.exports = gql`
-  type Query {
-    foo: String
-  }
-`;
+type Query {
+  foo: String
+}

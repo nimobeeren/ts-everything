@@ -10,15 +10,21 @@
     "/node_modules/",
     "/__generated__/"
   ],
+  "moduleFileExtensions": [
+    "ts", "tsx", "js"
+  ],
   "coverageReporters": [
     "html", "text-summary"
   ],
   "preset": "ts-jest",
   "setupFilesAfterEnv": [
-    "<rootDir>client/src/jest.setup.ts"
+    "<rootDir>/client/src/jest.setup.ts"
   ],
   "testEnvironment": "jsdom",
   "testMatch": [
     "**/__tests__/**/*.[jt]s?(x)"
-  ]
+  ],
+  "transform": {
+    "\\.graphql": "<rootDir>/test-utils/gqlTransformer.js"
+  }
 }
