@@ -48,7 +48,7 @@
     "@types/supertest": "^2.0.8",
     "apollo-link-schema": "^1.2.4",
     "babel-jest": "^24.9.0",
-    "concurrently": "^4.1.2",
+    "concurrently": "^5.0.0",
     "emotion-theming": "^10.0.19",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
