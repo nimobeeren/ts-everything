@@ -2,6 +2,7 @@
   "collectCoverage": true,
   "collectCoverageFrom": [
     "**/src/**/*.[tj]s?(x)",
+    "test-utils/*.[tj]s?(x)",
     "!client/src/index.tsx",
     "!server/src/index.ts"
   ],
@@ -12,16 +13,12 @@
   "coverageReporters": [
     "html", "text-summary"
   ],
-  "moduleFileExtensions": [
-    "js", "json", "jsx", "ts", "tsx", "node"
-  ],
   "preset": "ts-jest",
   "setupFilesAfterEnv": [
     "<rootDir>client/src/jest.setup.ts"
   ],
   "testEnvironment": "jsdom",
   "testMatch": [
-    "**/src/**/__tests__/**/*.[jt]s?(x)",
-    "**/src/**/?(*.)+(spec|test).[jt]s?(x)"
+    "**/__tests__/**/*.[jt]s?(x)"
   ]
 }
