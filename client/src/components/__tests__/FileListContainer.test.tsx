@@ -5,6 +5,7 @@ import wait from 'waait';
 import { MockedProvider, MockedResponse } from '@apollo/react-testing';
 import { FileListDocument } from '../../graphql';
 import { FileListContainer } from '../FileListContainer';
+import { ApolloMockingProvider } from '../../../../test-utils/ApolloMockingProvider';
 import { FileList } from '..';
 
 jest.mock('../FileList', () => ({
@@ -12,25 +13,6 @@ jest.mock('../FileList', () => ({
 }));
 
 describe('<FileListContainer />', () => {
-  const succesfulMocks: MockedResponse[] = [
-    {
-      request: {
-        query: FileListDocument
-      },
-      result: {
-        data: {
-          // TODO: can we do typechecking for this shape?
-          files: [
-            {
-              __typename: 'File',
-              title: 'Foo',
-              path: 'foo.mp4'
-            }
-          ]
-        }
-      }
-    }
-  ];
   const errorMocks: MockedResponse[] = [
     {
       request: {
@@ -43,25 +25,29 @@ describe('<FileListContainer />', () => {
     }
   ];
 
-  it('renders without exploding', () => {
-    const wrapper = mount(
-      <MockedProvider mocks={succesfulMocks}>
-        <FileListContainer />
-      </MockedProvider>
-    );
+  it('renders without exploding', () =>
+    // Tests that cause rendering updates should be wrapped in act()
+    // Here, `ApolloMockingProvider` is causing the update
+    act(async () => {
+      const wrapper = mount(
+        <ApolloMockingProvider>
+          <FileListContainer />
+        </ApolloMockingProvider>
+      );
 
-    expect(wrapper.first().is(FileListContainer));
-  });
+      expect(wrapper.find(FileListContainer)).toHaveLength(1);
+    }));
 
-  it('renders loading state initially', () => {
-    const wrapper = mount(
-      <MockedProvider mocks={succesfulMocks}>
-        <FileListContainer />
-      </MockedProvider>
-    );
+  it('renders loading state initially', () =>
+    act(async () => {
+      const wrapper = mount(
+        <ApolloMockingProvider>
+          <FileListContainer />
+        </ApolloMockingProvider>
+      );
 
-    expect(wrapper.text()).toContain('Loading');
-  });
+      expect(wrapper.text()).toContain('Loading');
+    }));
 
   it('renders error state when query fails', () =>
     act(async () => {
@@ -80,15 +66,15 @@ describe('<FileListContainer />', () => {
   it('renders a <FileList /> after loading', () =>
     act(async () => {
       const wrapper = mount(
-        <MockedProvider mocks={succesfulMocks}>
+        <ApolloMockingProvider>
           <FileListContainer />
-        </MockedProvider>
+        </ApolloMockingProvider>
       );
 
       await wait();
       wrapper.update();
 
       expect(wrapper.find(FileList)).toHaveLength(1);
-      // TODO: assert props correct props are passed to FileList
+      // TODO: assert correct props are passed to FileList
     }));
 });

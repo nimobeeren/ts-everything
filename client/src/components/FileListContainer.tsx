@@ -9,8 +9,7 @@ export const FileListContainer: React.FC = () => {
     return <p>Loading</p>;
   }
   if (error) {
-    console.error(`GQL error: ${error}`);
-    return <p>Error</p>;
+    return <p>Error: {error.message}</p>;
   }
 
   return <FileList files={data.files} />;
