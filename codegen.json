@@ -1,24 +1,24 @@
 {
-   "schema": "./server/src/schema.graphql",
-   "documents": "./client/src/**/*.graphql",
-   "generates": {
-      "./client/src/graphql/__generated__/index.tsx": {
-         "plugins": [
-            {
-               "add": "/*\n * This is GENERATED CODE, do not modify!\n * \n * Here we provide TypeScript types and utilities for the GraphQL schema.\n * When you make changes to your GraphQL schema, you should regenerate this file using `yarn generate`.\n*/"
-            },
-            "typescript",
-            "typescript-operations",
-            "typescript-react-apollo"
-         ],
-         "config": {
-            "withHooks": true,
-            "withComponent": false,
-            "withHOC": false
-         },
-         "hooks": {
-            "afterOneFileWrite": "eslint --fix --no-ignore"
-         }
+  "schema": "./graphql/schema.graphql",
+  "documents": "./graphql/documents/**/*.graphql",
+  "generates": {
+    "./graphql/__generated__/index.tsx": {
+      "plugins": [
+        {
+          "add": "/*\n * This is GENERATED CODE, do not modify!\n * \n * Here we provide TypeScript types and utilities for the GraphQL schema.\n * When you make changes to your GraphQL schema, you should regenerate this file using `yarn generate`.\n*/"
+        },
+        "typescript",
+        "typescript-operations",
+        "typescript-react-apollo"
+      ],
+      "config": {
+        "withHooks": true,
+        "withComponent": false,
+        "withHOC": false
+      },
+      "hooks": {
+        "afterOneFileWrite": "eslint --fix --no-ignore"
       }
-   }
+    }
+  }
 }

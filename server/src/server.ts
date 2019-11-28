@@ -3,7 +3,7 @@ import Koa from 'koa';
 import serve from 'koa-static';
 import { ApolloServer } from 'apollo-server-koa';
 import cors from '@koa/cors';
-import typeDefs from './schema.graphql';
+import typeDefs from '../../graphql/schema.graphql';
 import { resolvers } from './api';
 
 export function start(port: number | string) {

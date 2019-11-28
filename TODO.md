@@ -1,3 +1,4 @@
+- Use ApolloMockingProivder for error states
 - Snapshot testing
 - Fix server/dist not found on start-server
 - SSR?
@@ -6,3 +7,4 @@
 - Proper logging
 - Fix errors with eslint config dependencies
 - Prefix interfaces
+- Prettier conflicts with VSCode "format document"? (see FileListContainer.test.tsx)

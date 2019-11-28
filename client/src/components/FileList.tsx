@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from '../theme';
-import { File } from '../graphql';
+import { File } from '../../../graphql';
 
 const StyledFileList = styled.ul`
   color: ${props => props.theme.colors.primary};
