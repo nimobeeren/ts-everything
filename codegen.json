@@ -1,8 +1,8 @@
 {
-  "schema": "./graphql/schema.graphql",
-  "documents": "./graphql/documents/**/*.graphql",
+  "schema": "./graphql/src/schema.graphql",
+  "documents": "./graphql/src/documents/**/*.graphql",
   "generates": {
-    "./graphql/__generated__/index.tsx": {
+    "./graphql/src/__generated__/index.tsx": {
       "plugins": [
         {
           "add": "/*\n * This is GENERATED CODE, do not modify!\n * \n * Here we provide TypeScript types and utilities for the GraphQL schema.\n * When you make changes to your GraphQL schema, you should regenerate this file using `yarn generate`.\n*/"

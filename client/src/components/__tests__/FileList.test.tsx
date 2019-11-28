@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { ThemeProvider } from 'emotion-theming';
 import { theme } from '../../theme';
-import { File } from '../../../../graphql';
+import { File } from '../../../../graphql/src';
 import { FileList } from '..';
 
 describe('<FileList />', () => {

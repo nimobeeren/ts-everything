@@ -2,7 +2,7 @@ import { Server } from 'http';
 import request from 'supertest';
 import { start } from '../server';
 
-jest.mock('../../../graphql/schema.graphql');
+jest.mock('../../../graphql/src/schema.graphql');
 jest.mock('../api');
 
 describe('Server', () => {

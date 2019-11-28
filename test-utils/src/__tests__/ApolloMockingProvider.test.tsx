@@ -7,7 +7,7 @@ import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import { ApolloMockingProvider } from '../ApolloMockingProvider';
 
-jest.mock('../../../graphql/schema.graphql');
+jest.mock('../../../graphql/src/schema.graphql');
 
 const GET_FOO = gql`
   query Foo {
