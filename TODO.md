@@ -1,10 +1,10 @@
 - Use ApolloMockingProivder for error states
+- GraphQL server integration testing (https://www.apollographql.com/docs/apollo-server/testing/testing/)
+  - Automatically generate tests for each query?
 - Snapshot testing
 - Fix server/dist not found on start-server
 - SSR?
 - Code splitting
-- Bundle optimization (see Falcon babel preset)
 - Proper logging
 - Fix errors with eslint config dependencies
-- Prefix interfaces
 - Prettier conflicts with VSCode "format document"? (see FileListContainer.test.tsx)
