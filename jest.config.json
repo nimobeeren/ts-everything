@@ -25,6 +25,6 @@
     "**/__tests__/**/*.[jt]s?(x)"
   ],
   "transform": {
-    "\\.graphql": "<rootDir>/src/test-utils/gqlTransformer.js"
+    "\\.graphql": "<rootDir>/test-utils/gqlTransformer.js"
   }
 }

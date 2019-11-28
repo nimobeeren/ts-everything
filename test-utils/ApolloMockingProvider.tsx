@@ -4,7 +4,7 @@ import ApolloClient from 'apollo-client';
 import { SchemaLink } from 'apollo-link-schema';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloProvider } from '@apollo/react-hooks';
-import typeDefs from '../../graphql/schema.graphql';
+import typeDefs from '../graphql/schema.graphql';
 
 interface ApolloMockingProviderProps {
   mocks?: IMockOptions['mocks'];
