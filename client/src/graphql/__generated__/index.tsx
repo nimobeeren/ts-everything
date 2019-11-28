@@ -25,22 +25,29 @@ export type File = {
   path?: Maybe<Scalars['String']>;
 };
 
+export type FileList = {
+  __typename?: 'FileList';
+  items: Array<File>;
+};
+
 export type Query = {
   __typename?: 'Query';
-  files: Array<File>;
+  files?: Maybe<FileList>;
 };
 
 export type FileListQueryVariables = {};
 
 export type FileListQuery = { __typename?: 'Query' } & {
-  files: Array<{ __typename?: 'File' } & Pick<File, 'title' | 'path'>>;
+  files: Maybe<{ __typename?: 'FileList' } & { items: Array<{ __typename?: 'File' } & Pick<File, 'title' | 'path'>> }>;
 };
 
 export const FileListDocument = gql`
   query FileList {
     files {
-      title
-      path
+      items {
+        title
+        path
+      }
     }
   }
 `;

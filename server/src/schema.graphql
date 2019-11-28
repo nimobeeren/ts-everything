@@ -1,5 +1,9 @@
 type Query {
-  files: [File!]!
+  files: FileList
+}
+
+type FileList {
+  items: [File!]!
 }
 
 type File {

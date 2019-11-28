@@ -12,5 +12,5 @@ export const FileListContainer: React.FC = () => {
     return <p>Error: {error.message}</p>;
   }
 
-  return <FileList files={data.files} />;
+  return <FileList files={data.files.items} />;
 };
