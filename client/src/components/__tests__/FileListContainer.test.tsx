@@ -65,8 +65,14 @@ describe('<FileListContainer />', () => {
 
   it('renders a <FileList /> after loading', () =>
     act(async () => {
+      const mocks = {
+        FileList: () => ({
+          items: [{ title: 'Foo', path: 'foo.mp4' }, { title: 'Bar', path: 'bar.mp4' }]
+        })
+      };
+
       const wrapper = mount(
-        <ApolloMockingProvider>
+        <ApolloMockingProvider mocks={mocks}>
           <FileListContainer />
         </ApolloMockingProvider>
       );
@@ -74,7 +80,12 @@ describe('<FileListContainer />', () => {
       await wait();
       wrapper.update();
 
-      expect(wrapper.find(FileList)).toHaveLength(1);
-      // TODO: assert correct props are passed to FileList
+      const fileList = wrapper.find(FileList);
+      expect(fileList).toHaveLength(1);
+      const receivedFiles = fileList.prop('files');
+      expect(receivedFiles[0]).toHaveProperty('title', 'Foo');
+      expect(receivedFiles[0]).toHaveProperty('path', 'foo.mp4');
+      expect(receivedFiles[1]).toHaveProperty('title', 'Bar');
+      expect(receivedFiles[1]).toHaveProperty('path', 'bar.mp4');
     }));
 });
