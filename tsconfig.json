@@ -7,5 +7,5 @@
     "jsx": "react",
     "esModuleInterop": true
   },
-  "include": ["**/src/**/*", "test-utils", "graphql"]
+  "include": ["**/src/**/*", "src/test-utils", "graphql"]
 }

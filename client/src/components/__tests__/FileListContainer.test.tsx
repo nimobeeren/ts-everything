@@ -5,7 +5,7 @@ import wait from 'waait';
 import { MockedProvider, MockedResponse } from '@apollo/react-testing';
 import { FileListDocument } from '../../../../graphql';
 import { FileListContainer } from '../FileListContainer';
-import { ApolloMockingProvider } from '../../../../test-utils/ApolloMockingProvider';
+import { ApolloMockingProvider } from '../../../../src/test-utils/ApolloMockingProvider';
 import { FileList } from '..';
 
 jest.mock('../FileList', () => ({
