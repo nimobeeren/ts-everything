@@ -6,6 +6,3 @@
 - Proper logging
 - Fix errors with eslint config dependencies
 - Prefix interfaces
-- Test with older node versions (do ES modules still work?) (https://jestjs.io/docs/en/webpack)
-- Can other Parcel assets be used in Jest environment?
-  - what about babel plugins?
