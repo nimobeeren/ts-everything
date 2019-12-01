@@ -67,7 +67,11 @@ describe('<FileListContainer />', () => {
     act(async () => {
       const mocks = {
         FileList: () => ({
-          items: [{ title: 'Foo', path: 'foo.mp4' }, { title: 'Bar', path: 'bar.mp4' }]
+          // prettier-ignore
+          items: [
+            { title: 'Foo', path: 'foo.mp4' },
+            { title: 'Bar', path: 'bar.mp4' }
+          ]
         })
       };
 
