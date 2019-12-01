@@ -6,5 +6,4 @@
 - SSR?
 - Code splitting
 - Proper logging
-- Fix errors with eslint config dependencies
-- Prettier conflicts with VSCode "format document"? (see FileListContainer.test.tsx)
+- Prettier/ESLint conflicts (wait for eslint-config-falcon update)
