@@ -2,31 +2,10 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import wait from 'waait';
-import { QueryResult } from '@apollo/react-common';
-import { useQuery } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
 import { ApolloMockingProvider } from '../ApolloMockingProvider';
+import { ApolloMockingConsumer, Child } from '../ApolloMockingConsumer';
 
 jest.mock('../../../graphql/src/schema.graphql');
-
-const GET_FOO = gql`
-  query Foo {
-    foo
-  }
-`;
-type FooQuery = {
-  foo: string;
-};
-// Helper component that consumes Apollo context by executing a query
-const Consumer: React.FC = () => {
-  return <Child result={useQuery<FooQuery>(GET_FOO)} />;
-};
-
-interface ChildProps {
-  result: QueryResult<FooQuery>;
-}
-// Helper component that is used to inspect the query result
-const Child: React.FC<ChildProps> = () => <React.Fragment />;
 
 describe('<ApolloMockingProvider />', () => {
   it('renders without exploding', () => {
@@ -38,7 +17,7 @@ describe('<ApolloMockingProvider />', () => {
     act(async () => {
       const wrapper = mount(
         <ApolloMockingProvider>
-          <Consumer />
+          <ApolloMockingConsumer />
         </ApolloMockingProvider>
       );
 
@@ -57,7 +36,7 @@ describe('<ApolloMockingProvider />', () => {
 
       const wrapper = mount(
         <ApolloMockingProvider mocks={mocks}>
-          <Consumer />
+          <ApolloMockingConsumer />
         </ApolloMockingProvider>
       );
 
