@@ -29,6 +29,11 @@ interface ChildProps {
 const Child: React.FC<ChildProps> = () => <React.Fragment />;
 
 describe('<ApolloMockingProvider />', () => {
+  it('renders without exploding', () => {
+    const wrapper = mount(<ApolloMockingProvider />);
+    expect(wrapper.is(ApolloMockingProvider)).toBe(true);
+  });
+
   it('provides some mocked data', () =>
     act(async () => {
       const wrapper = mount(
