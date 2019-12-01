@@ -1,9 +1,8 @@
 - Use ApolloMockingProivder for error states
-- GraphQL server integration testing (https://www.apollographql.com/docs/apollo-server/testing/testing/)
-  - Automatically generate tests for each query?
 - Snapshot testing
 - Fix server/dist not found on start-server
 - SSR?
 - Code splitting
 - Proper logging
+- Automatically generate integration tests for each query?
 - Prettier/ESLint conflicts (wait for eslint-config-falcon update)
