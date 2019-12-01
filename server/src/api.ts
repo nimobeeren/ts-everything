@@ -3,9 +3,11 @@
  */
 export const resolvers = {
   Query: {
-    files: () => [
-      { title: 'Hello World', path: '/hello/world.mp4' },
-      { title: 'Breaking Bad', path: '/hello/breaking-bad.mp4' }
-    ]
+    files: () => ({
+      items: [
+        { title: 'Hello World', path: '/hello/world.mp4' },
+        { title: 'Breaking Bad', path: '/hello/breaking-bad.mp4' }
+      ]
+    })
   }
 };
