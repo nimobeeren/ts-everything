@@ -6,3 +6,4 @@
 - Proper logging
 - Automatically generate integration tests for each query?
 - Prettier/ESLint conflicts (wait for eslint-config-falcon update)
+- Try React Testing Library
