@@ -2,7 +2,6 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { ApolloConsumer } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-client';
-import { IMocks } from 'graphql-tools';
 import { ApolloMockingProvider } from '../ApolloMockingProvider';
 
 // Mock the schema so we are really just testing the component itself
@@ -24,14 +23,8 @@ describe('<ApolloMockingProvider />', () => {
   });
 
   it('provides Apollo context', done => {
-    const mocks: IMocks = {
-      Foo: () => ({
-        items: []
-      })
-    };
-
     mount(
-      <ApolloMockingProvider mocks={mocks}>
+      <ApolloMockingProvider>
         <ApolloConsumer>
           {client => {
             expect(client).toBeInstanceOf(ApolloClient);
