@@ -1,30 +1,15 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
+import { mount } from 'enzyme';
 import wait from 'waait';
-import { MockedProvider, MockedResponse } from '@apollo/react-testing';
-import { FileListDocument } from '../../../../graphql/src';
-import { FileListContainer } from '../FileListContainer';
 import { ApolloMockingProvider } from '../../../../test-utils/src/ApolloMockingProvider';
-import { FileList } from '..';
+import { FileList, FileListContainer } from '..';
 
 jest.mock('../FileList', () => ({
   FileList: () => <React.Fragment />
 }));
 
 describe('<FileListContainer />', () => {
-  const errorMocks: MockedResponse[] = [
-    {
-      request: {
-        query: FileListDocument
-      },
-      error: {
-        name: 'Error',
-        message: 'aw shucks'
-      }
-    }
-  ];
-
   it('renders without exploding', () =>
     // Tests that cause rendering updates should be wrapped in act()
     // Here, `ApolloMockingProvider` is causing the update
@@ -52,9 +37,9 @@ describe('<FileListContainer />', () => {
   it('renders error state when query fails', () =>
     act(async () => {
       const wrapper = mount(
-        <MockedProvider mocks={errorMocks}>
+        <ApolloMockingProvider errors={[]}>
           <FileListContainer />
-        </MockedProvider>
+        </ApolloMockingProvider>
       );
 
       await wait();

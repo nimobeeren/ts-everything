@@ -7,6 +7,3 @@
 - Automatically generate integration tests for each query?
 - Prettier/ESLint conflicts (wait for eslint-config-falcon update)
 - Try React Testing Library
-- Maybe don't start a real HTTP server for server tests? How do we do it in Falcon?
-- Jest should print smaller/no stacktrace for expect() fails
-- Jest show running times for all tests
