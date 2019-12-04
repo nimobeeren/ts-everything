@@ -1,15 +1,16 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import { App, FileListContainer } from '..';
+import { render, wait } from '@testing-library/react';
+import { App } from '..';
 
 describe('<App />', () => {
-  it('renders without exploding', () => {
-    const wrapper = shallow(<App />);
-    expect(wrapper).not.toBeNull();
-  });
+  it('renders without exploding', async () => {
+    // We simply render the App and pass the test if no errors are thrown
+    // This component is not responsbile for rendering any content, so we don't make
+    // any additional assertions
+    render(<App />);
 
-  it('renders a <FileListContainer />', () => {
-    const wrapper = shallow(<App />);
-    expect(wrapper.find(FileListContainer)).toHaveLength(1);
+    // Wait a tick for any mocked API to finish
+    // This helps to avoid "an update was not wrapped in act(...)" warnings
+    await wait();
   });
 });
