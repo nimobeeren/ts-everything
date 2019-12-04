@@ -1,7 +1,7 @@
 {
   "name": "ts-everything",
   "version": "0.1.0",
-  "description": "A template aimed at optimizing developer experience through excellent code completion, unit tests and automation.",
+  "description": "A template aimed at optimizing developer experience through excellent code completion, testing and automation.",
   "repository": "https://github.com/nimobeeren/ts-everything",
   "author": "Nimo Beeren",
   "license": "MIT",
