@@ -6,8 +6,9 @@
 - Proper logging
 - Automatically generate integration tests for each query?
 - Prettier/ESLint conflicts (wait for eslint-config-falcon update)
-- Try React Testing Library
+- Migrate to React Testing Library
 - Automocking
 - Remove unused packages
 - eslint-plugin-testing-library
 - Set a max line length
+- Do we need a babelrc for /graphql and /test-utils?
