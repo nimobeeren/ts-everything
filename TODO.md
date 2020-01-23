@@ -12,3 +12,5 @@
 - eslint-plugin-testing-library
 - Set a max line length
 - Do we need a babelrc for /graphql and /test-utils?
+
+For some reason `babel-node startServer.ts` works when ran inside /scripts but not in root or through yarn :/
