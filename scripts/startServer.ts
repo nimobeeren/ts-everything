@@ -1,6 +1,6 @@
 import path from 'path';
 import { fork, ChildProcess } from 'child_process';
-import Bundler from 'parcel';
+import Bundler from 'parcel-bundler';
 
 async function clientDev() {
   const clientEntryFile = path.resolve(__dirname, '../client/src/index.html');
