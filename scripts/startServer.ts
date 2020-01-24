@@ -24,14 +24,15 @@ async function serverDev() {
   const serverOutFile = path.resolve(__dirname, '../server/dist/index.js');
 
   bundler.on('bundled', () => {
-    if (serverProc) {
+    if (!serverProc) {
+      serverProc = fork(serverOutFile);
+    } else {
       console.log('Restarting...');
       serverProc.kill();
+      serverProc.on('exit', () => {
+        serverProc = fork(serverOutFile);
+      });
     }
-    serverProc = fork(serverOutFile);
-    serverProc.on('exit', () => {
-      serverProc = null;
-    });
   });
 }
 
