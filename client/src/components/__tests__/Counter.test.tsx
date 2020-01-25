@@ -1,23 +1,17 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { render, fireEvent } from '../../../../test-utils/src';
 import { Counter } from '../Counter';
 
 describe('<Counter />', () => {
-  it('renders without exploding', () => {
-    const wrapper = shallow(<Counter />);
-    expect(wrapper).not.toBeNull();
+  it('renders without exploding', async () => {
+    render(<Counter />);
   });
 
   it('displays the correct count', () => {
-    const wrapper = mount(<Counter />);
-    const button = wrapper.find('button');
-    const count = wrapper.find('span');
+    const { getByText, getByRole } = render(<Counter />);
 
-    expect(button).toHaveLength(1);
-    expect(count).toHaveLength(1);
-
-    expect(count.text()).toEqual('0');
-    button.simulate('click');
-    expect(count.text()).toEqual('1');
+    expect(getByText('0')).toBeInTheDocument();
+    fireEvent.click(getByRole('button'));
+    expect(getByText('1')).toBeInTheDocument();
   });
 });
