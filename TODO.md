@@ -1,7 +1,6 @@
 Testing
 
 - Migrate to React Testing Library
-- eslint-plugin-testing-library
 - Snapshot testing
 - Automatically generate integration tests for each query?
 - Automocking
