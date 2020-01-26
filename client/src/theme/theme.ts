@@ -10,7 +10,7 @@ export const theme = {
     negative: 'black'
   },
   fonts: {
-    sans: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+    sans: `-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`,
     mono: 'Courier New, monospace'
   },
   borderRadii: {

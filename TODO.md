@@ -7,8 +7,7 @@ Testing
 
 Linting
 
-- Prettier/ESLint conflicts (wait for eslint-config-falcon update) -> probably change ESLint config
-- Set a max line length
+- `no-extraneous-dependencies` always enabled except in test files (so move dev deps to deps)
 
 Optimization
 

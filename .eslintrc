@@ -1,7 +1,0 @@
-{
-  "extends": ["@deity/eslint-config-falcon", "plugin:testing-library/recommended", "plugin:testing-library/react"],
-  "plugins": ["testing-library", "jest-dom"],
-  "rules": {
-    "import-name": "off"
-  }
-}

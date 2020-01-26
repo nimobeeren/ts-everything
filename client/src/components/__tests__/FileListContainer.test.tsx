@@ -6,6 +6,7 @@ import { ApolloMockingProvider } from '../../../../test-utils/src/ApolloMockingP
 import { FileList, FileListContainer } from '..';
 
 jest.mock('../FileList', () => ({
+  // eslint-disable-next-line react/jsx-fragments
   FileList: () => <React.Fragment />
 }));
 

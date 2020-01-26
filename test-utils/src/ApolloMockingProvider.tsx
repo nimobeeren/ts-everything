@@ -13,7 +13,11 @@ interface ApolloMockingProviderProps {
   errors?: GraphQLError[];
 }
 
-export const ApolloMockingProvider: React.FC<ApolloMockingProviderProps> = ({ mocks, errors, children }) => {
+export const ApolloMockingProvider: React.FC<ApolloMockingProviderProps> = ({
+  mocks,
+  errors,
+  children
+}) => {
   // Create a link that will return an error if they are passed
   const errorLink = new ApolloLink(() => {
     return new Observable(observer => {
