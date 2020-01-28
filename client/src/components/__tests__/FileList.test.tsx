@@ -1,18 +1,11 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { ThemeProvider } from 'emotion-theming';
-import { theme } from '../../theme';
+import { render } from 'test-utils';
 import { File } from '../../../../graphql/src';
 import { FileList } from '..';
 
 describe('<FileList />', () => {
   it('renders without exploding', () => {
-    const wrapper = mount(<FileList files={[]} />, {
-      wrappingComponent: ThemeProvider,
-      wrappingComponentProps: { theme }
-    });
-
-    expect(wrapper.is(FileList));
+    render(<FileList files={[]} />);
   });
 
   it('renders a list', () => {
@@ -26,15 +19,12 @@ describe('<FileList />', () => {
         path: 'bar.mp4'
       }
     ];
-    const wrapper = mount(<FileList files={files} />, {
-      wrappingComponent: ThemeProvider,
-      wrappingComponentProps: { theme }
-    });
 
-    const items = wrapper.find('li');
-    expect(items.at(0).text()).toContain('Foo');
-    expect(items.at(0).text()).toContain('foo.mp4');
-    expect(items.at(1).text()).toContain('Bar');
-    expect(items.at(1).text()).toContain('bar.mp4');
+    const { getByText } = render(<FileList files={files} />);
+
+    expect(getByText(/Foo/)).toBeInTheDocument();
+    expect(getByText(/foo.mp4/)).toBeInTheDocument();
+    expect(getByText(/Bar/)).toBeInTheDocument();
+    expect(getByText(/bar.mp4/)).toBeInTheDocument();
   });
 });
