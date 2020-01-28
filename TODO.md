@@ -16,3 +16,4 @@ Infrastructure
 - Do we need a babelrc for /graphql and /test-utils?
 - Find a way to simplify long relative imports that works with both Parcel and Jest
 - Migrate to a two (three?) package architecture
+- Idea: write configuration in TS and throw the whole thing through Babel
