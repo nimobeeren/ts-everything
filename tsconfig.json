@@ -2,10 +2,11 @@
   "compilerOptions": {
     // We only use the TypeScript compiler for type checking, transpiling is handled by Babel
     "noEmit": true,
-    "noImplicitAny": true,
-    "module": "commonjs",
-    "jsx": "react",
     "esModuleInterop": true,
+    "jsx": "react",
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "baseUrl": ".",
     "paths": {
       "test-utils": ["test-utils/src/test-utils.ts"]
