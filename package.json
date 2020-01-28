@@ -17,7 +17,7 @@
     "serve": "NODE_ENV=production node server/dist",
     "start": "concurrently yarn:start-*",
     "start-client": "parcel client/src/index.html -d client/dist",
-    "start-server": "cd scripts && babel-node -x .ts startServer.ts",
+    "start-server": "babel-node -x .ts scripts/startServer.ts",
     "test": "jest --config jest.config.json"
   },
   "engines": {

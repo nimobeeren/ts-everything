@@ -14,6 +14,5 @@ Infrastructure
 
 - Proper logging
 - Do we need a babelrc for /graphql and /test-utils?
-- Make start-server work without `cd`
 - Find a way to simplify long relative imports that works with both Parcel and Jest
 - Migrate to a two (three?) package architecture
