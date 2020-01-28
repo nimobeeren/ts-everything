@@ -5,7 +5,11 @@
     "noImplicitAny": true,
     "module": "commonjs",
     "jsx": "react",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "test-utils": ["test-utils/src/test-utils.ts"]
+    }
   },
   "include": ["**/src/**/*"]
 }

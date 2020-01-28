@@ -9,6 +9,10 @@
     "/node_modules/",
     "/__generated__/"
   ],
+  "moduleDirectories": [
+    "node_modules",
+    "test-utils/src"
+  ],
   "moduleFileExtensions": [
     "ts", "tsx", "js"
   ],

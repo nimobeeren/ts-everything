@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, wait } from '../../../../test-utils/src';
+import { render, wait } from 'test-utils';
 import { App } from '..';
 
 describe('<App />', () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '../../../../test-utils/src';
+import { render, fireEvent } from 'test-utils';
 import { Counter } from '../Counter';
 
 describe('<Counter />', () => {

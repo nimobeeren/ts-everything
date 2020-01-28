@@ -2,7 +2,7 @@ import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import wait from 'waait';
-import { ApolloMockingProvider } from '../../../../test-utils/src/ApolloMockingProvider';
+import { ApolloMockingProvider } from 'test-utils';
 import { FileList, FileListContainer } from '..';
 
 jest.mock('../FileList', () => ({
