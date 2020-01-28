@@ -5,10 +5,6 @@ Testing
 - Automatically generate integration tests for each query?
 - Automocking
 
-Linting
-
-- `no-extraneous-dependencies` always enabled except in test files (so move dev deps to deps)
-
 Optimization
 
 - SSR?
