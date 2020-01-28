@@ -23,7 +23,10 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off',
     'react/prop-types': 'off',
     'import/prefer-default-export': 'off',
-    'import/no-extraneous-dependencies': 'off',
+    'import/no-extraneous-dependencies': [
+      'error',
+      { devDependencies: ['**/__tests__/*', '**/__mocks__/*', 'test-utils/**/*', 'scripts/**/*'] }
+    ],
     'import/extensions': 'off',
     'import/prefer-default-export': 'off',
     'prettier/prettier': [
