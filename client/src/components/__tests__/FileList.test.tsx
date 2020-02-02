@@ -24,6 +24,8 @@ describe('<FileList />', () => {
       </ApolloMockingProvider>
     );
 
+    // FIXME: when passing errors, the component renders twice, first without errors and then with
+
     expect(await findByText(/Error/)).toBeInTheDocument();
   });
 
@@ -43,6 +45,8 @@ describe('<FileList />', () => {
         <FileList />
       </ApolloMockingProvider>
     );
+
+    // FIXME: when passing mocks, the component renders twice, first without custom mocks and then with
 
     expect(await findByText(/Foo/)).toBeInTheDocument();
     expect(await findByText(/foo.mp4/)).toBeInTheDocument();
