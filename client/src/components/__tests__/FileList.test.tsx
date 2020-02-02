@@ -1,30 +1,52 @@
 import React from 'react';
-import { render } from 'test-utils';
-import { File } from '../../../../graphql/src';
+import { render, ApolloMockingProvider } from 'test-utils';
 import { FileList } from '..';
 
 describe('<FileList />', () => {
   it('renders without exploding', () => {
-    render(<FileList files={[]} />);
+    render(<FileList />);
   });
 
-  it('renders a list', () => {
-    const files: File[] = [
-      {
-        title: 'Foo',
-        path: 'foo.mp4'
-      },
-      {
-        title: 'Bar',
-        path: 'bar.mp4'
-      }
-    ];
+  it('renders loading state initially', () => {
+    const { getByText } = render(
+      <ApolloMockingProvider>
+        <FileList />
+      </ApolloMockingProvider>
+    );
 
-    const { getByText } = render(<FileList files={files} />);
+    expect(getByText(/Loading/)).toBeInTheDocument();
+  });
 
-    expect(getByText(/Foo/)).toBeInTheDocument();
-    expect(getByText(/foo.mp4/)).toBeInTheDocument();
-    expect(getByText(/Bar/)).toBeInTheDocument();
-    expect(getByText(/bar.mp4/)).toBeInTheDocument();
+  it('renders error state when query fails', async () => {
+    const { findByText } = render(
+      <ApolloMockingProvider errors={[]}>
+        <FileList />
+      </ApolloMockingProvider>
+    );
+
+    expect(await findByText(/Error/)).toBeInTheDocument();
+  });
+
+  it('renders a list of files', async () => {
+    const mocks = {
+      FileList: () => ({
+        // prettier-ignore
+        items: [
+          { title: 'Foo', path: 'foo.mp4' },
+          { title: 'Bar', path: 'bar.mp4' }
+        ]
+      })
+    };
+
+    const { findByText } = render(
+      <ApolloMockingProvider mocks={mocks}>
+        <FileList />
+      </ApolloMockingProvider>
+    );
+
+    expect(await findByText(/Foo/)).toBeInTheDocument();
+    expect(await findByText(/foo.mp4/)).toBeInTheDocument();
+    expect(await findByText(/Bar/)).toBeInTheDocument();
+    expect(await findByText(/bar.mp4/)).toBeInTheDocument();
   });
 });
