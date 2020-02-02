@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, ApolloMockingProvider } from 'test-utils';
-import { FileList } from '..';
+import { FileList } from '../FileList';
 
 describe('<FileList />', () => {
   it('renders without exploding', () => {
