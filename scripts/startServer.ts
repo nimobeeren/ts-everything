@@ -9,7 +9,6 @@ const cacheDir = path.resolve(__dirname, '../.cache');
 const options: Bundler.ParcelOptions = {
   outDir: path.dirname(serverOutFile),
   target: 'node',
-  scopeHoist: true, // needed to fix "parcelRequire is not defined" when starting
   cacheDir
 };
 
