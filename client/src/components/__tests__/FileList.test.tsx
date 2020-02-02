@@ -8,11 +8,7 @@ describe('<FileList />', () => {
   });
 
   it('renders loading state initially', () => {
-    const { getByText } = render(
-      <ApolloMockingProvider>
-        <FileList />
-      </ApolloMockingProvider>
-    );
+    const { getByText } = render(<FileList />);
 
     expect(getByText(/Loading/)).toBeInTheDocument();
   });
