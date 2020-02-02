@@ -32,19 +32,15 @@ export type FileList = {
 
 export type Query = {
   __typename?: 'Query';
-  files?: Maybe<FileList>;
+  files: FileList;
 };
 
 export type FileListQueryVariables = {};
 
 export type FileListQuery = { __typename?: 'Query' } & {
-  files: Maybe<{ __typename?: 'FileList' } & { items: Array<{ __typename?: 'File' } & Pick<File, 'title' | 'path'>> }>;
-};
-
-export type FileListTitlesQueryVariables = {};
-
-export type FileListTitlesQuery = { __typename?: 'Query' } & {
-  files: Maybe<{ __typename?: 'FileList' } & { items: Array<{ __typename?: 'File' } & Pick<File, 'title'>> }>;
+  files: { __typename?: 'FileList' } & {
+    items: Array<{ __typename?: 'File' } & Pick<File, 'title' | 'path'>>;
+  };
 };
 
 export const FileListDocument = gql`
@@ -64,6 +60,7 @@ export const FileListDocument = gql`
  * To run a query within a React component, call `useFileListQuery` and pass it any options that fit your needs.
  * When your component renders, `useFileListQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
+ *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
@@ -75,59 +72,22 @@ export const FileListDocument = gql`
 export function useFileListQuery(
   baseOptions?: ApolloReactHooks.QueryHookOptions<FileListQuery, FileListQueryVariables>
 ) {
-  return ApolloReactHooks.useQuery<FileListQuery, FileListQueryVariables>(FileListDocument, baseOptions);
+  return ApolloReactHooks.useQuery<FileListQuery, FileListQueryVariables>(
+    FileListDocument,
+    baseOptions
+  );
 }
 export function useFileListLazyQuery(
   baseOptions?: ApolloReactHooks.LazyQueryHookOptions<FileListQuery, FileListQueryVariables>
 ) {
-  return ApolloReactHooks.useLazyQuery<FileListQuery, FileListQueryVariables>(FileListDocument, baseOptions);
+  return ApolloReactHooks.useLazyQuery<FileListQuery, FileListQueryVariables>(
+    FileListDocument,
+    baseOptions
+  );
 }
 export type FileListQueryHookResult = ReturnType<typeof useFileListQuery>;
 export type FileListLazyQueryHookResult = ReturnType<typeof useFileListLazyQuery>;
-export type FileListQueryResult = ApolloReactCommon.QueryResult<FileListQuery, FileListQueryVariables>;
-export const FileListTitlesDocument = gql`
-  query FileListTitles {
-    files {
-      items {
-        title
-      }
-    }
-  }
-`;
-
-/**
- * __useFileListTitlesQuery__
- *
- * To run a query within a React component, call `useFileListTitlesQuery` and pass it any options that fit your needs.
- * When your component renders, `useFileListTitlesQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useFileListTitlesQuery({
- *   variables: {
- *   },
- * });
- */
-export function useFileListTitlesQuery(
-  baseOptions?: ApolloReactHooks.QueryHookOptions<FileListTitlesQuery, FileListTitlesQueryVariables>
-) {
-  return ApolloReactHooks.useQuery<FileListTitlesQuery, FileListTitlesQueryVariables>(
-    FileListTitlesDocument,
-    baseOptions
-  );
-}
-export function useFileListTitlesLazyQuery(
-  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<FileListTitlesQuery, FileListTitlesQueryVariables>
-) {
-  return ApolloReactHooks.useLazyQuery<FileListTitlesQuery, FileListTitlesQueryVariables>(
-    FileListTitlesDocument,
-    baseOptions
-  );
-}
-export type FileListTitlesQueryHookResult = ReturnType<typeof useFileListTitlesQuery>;
-export type FileListTitlesLazyQueryHookResult = ReturnType<typeof useFileListTitlesLazyQuery>;
-export type FileListTitlesQueryResult = ApolloReactCommon.QueryResult<
-  FileListTitlesQuery,
-  FileListTitlesQueryVariables
+export type FileListQueryResult = ApolloReactCommon.QueryResult<
+  FileListQuery,
+  FileListQueryVariables
 >;
