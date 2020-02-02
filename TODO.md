@@ -1,6 +1,5 @@
 Testing
 
-- Migrate to React Testing Library
 - Snapshot testing
 - Automatically generate integration tests for each query?
 - Automocking?
