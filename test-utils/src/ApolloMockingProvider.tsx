@@ -31,7 +31,7 @@ export const ApolloMockingProvider: React.FC<ApolloMockingProviderProps> = ({
   addMockFunctionsToSchema({ schema, mocks });
   const schemaLink = new SchemaLink({ schema });
 
-  // If errors are defined, use the error link, otherwise use the smocked schema link
+  // If errors are defined, use the error link, otherwise use the mocked schema link
   const splitLink = split(() => !!errors, errorLink, schemaLink);
 
   const mockedClient = new ApolloClient({

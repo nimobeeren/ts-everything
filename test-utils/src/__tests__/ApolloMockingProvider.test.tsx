@@ -1,112 +1,112 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
 import { GraphQLError } from 'graphql';
 import { IMocks } from 'graphql-tools';
 import gql from 'graphql-tag';
-import ApolloClient from 'apollo-client';
-import { ApolloConsumer, useQuery } from '@apollo/react-hooks';
+import { render as renderWithoutProviders, wait } from '@testing-library/react';
+import { useQuery } from '@apollo/react-hooks';
 import { ApolloMockingProvider } from '../ApolloMockingProvider';
 
 // Mock the schema so we are really just testing the component itself
 jest.mock('../../../graphql/src/schema.graphql');
 
+// An example query that is valid within the mocked schema
+const GET_FOO = gql`
+  {
+    foo {
+      bar
+    }
+  }
+`;
+
 describe('<ApolloMockingProvider />', () => {
-  it('renders without exploding', () => {
-    const wrapper = mount(<ApolloMockingProvider />);
-    expect(wrapper.is(ApolloMockingProvider)).toBe(true);
+  it('renders without exploding', async () => {
+    renderWithoutProviders(<ApolloMockingProvider />);
+    await wait();
   });
 
   it('renders its children', () => {
-    const wrapper = mount(
+    const { getByTestId } = renderWithoutProviders(
       <ApolloMockingProvider>
-        <div id="child" />
+        <div data-testid="child" />
       </ApolloMockingProvider>
     );
-    expect(wrapper.find('#child')).toHaveLength(1);
-  });
-
-  it('provides Apollo context', done => {
-    mount(
-      <ApolloMockingProvider>
-        <ApolloConsumer>
-          {client => {
-            expect(client).toBeInstanceOf(ApolloClient);
-            done();
-            return null;
-          }}
-        </ApolloConsumer>
-      </ApolloMockingProvider>
-    );
+    expect(getByTestId('child')).toBeInTheDocument();
   });
 
   it('provides mocked data', async done => {
-    await act(async () => {
-      const mocks: IMocks = {
-        Foo: () => ({
-          bar: 'baz'
-        })
-      };
+    const mocks: IMocks = {
+      Foo: () => ({
+        bar: 'baz'
+      })
+    };
 
-      const GET_FOO = gql`
-        {
-          foo {
-            bar
-          }
-        }
-      `;
+    // Helper component that consumes Apollo context and makes assertions
+    const TestConsumer: React.FC = () => {
+      const { loading, error, data } = useQuery(GET_FOO);
+      if (!loading) {
+        expect(error).toBeUndefined();
+        expect(data).toHaveProperty('foo');
+        expect(data.foo.bar).toBe('baz');
+        done();
+      }
+      return null;
+    };
 
-      // Helper component that consumes Apollo context and makes assertions
-      const TestConsumer: React.FC = () => {
-        const { loading, error, data } = useQuery(GET_FOO);
-        if (!loading) {
-          expect(error).toBeUndefined();
-          expect(data).toHaveProperty('foo');
-          expect(data.foo.bar).toBe('baz');
-          setImmediate(done); // needs a tick to clean up before calling done
-        }
-        return null;
-      };
+    renderWithoutProviders(
+      <ApolloMockingProvider mocks={mocks}>
+        <TestConsumer />
+      </ApolloMockingProvider>
+    );
 
-      mount(
-        <ApolloMockingProvider mocks={mocks}>
-          <TestConsumer />
-        </ApolloMockingProvider>
-      );
-    });
+    await wait();
+  });
+
+  it('provides loading state on first render', async done => {
+    let firstRender = true;
+
+    // Helper component that consumes Apollo context and makes assertions
+    const TestConsumer: React.FC = () => {
+      const { loading } = useQuery(GET_FOO);
+      if (firstRender) {
+        expect(loading).toBe(true);
+        firstRender = false;
+        done();
+      }
+      return null;
+    };
+
+    renderWithoutProviders(
+      <ApolloMockingProvider>
+        <TestConsumer />
+      </ApolloMockingProvider>
+    );
+
+    await wait();
   });
 
   it('provides errors', async done => {
-    await act(async () => {
-      // What errors we expect to be returned
-      const errors = [new GraphQLError('Something went wrong')];
+    // What errors we expect to be returned
+    const errors = [new GraphQLError('Something went wrong')];
 
+    // Helper component that consumes Apollo context and makes assertions
+    const TestConsumer: React.FC = () => {
       // It doesn't matter what we request,
       // since the provider should return an error anyway
-      const GET_BAR = gql`
-        {
-          foo {
-            bar
-          }
-        }
-      `;
+      const { loading, error } = useQuery(GET_FOO);
+      if (!loading) {
+        expect(error).toBeDefined();
+        expect(error.message).toContain('Something went wrong');
+        done();
+      }
+      return null;
+    };
 
-      // Helper component that consumes Apollo context and makes assertions
-      const TestConsumer: React.FC = () => {
-        const { loading, error } = useQuery(GET_BAR);
-        if (!loading) {
-          expect(error).toBeDefined();
-          expect(error.message).toContain('Something went wrong');
-          setImmediate(done); // needs a tick to clean up before calling done
-        }
-        return null;
-      };
+    renderWithoutProviders(
+      <ApolloMockingProvider errors={errors}>
+        <TestConsumer />
+      </ApolloMockingProvider>
+    );
 
-      mount(
-        <ApolloMockingProvider errors={errors}>
-          <TestConsumer />
-        </ApolloMockingProvider>
-      );
-    });
+    await wait();
   });
 });
