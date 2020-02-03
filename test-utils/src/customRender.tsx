@@ -22,3 +22,4 @@ const customRender: typeof render = (ui: RenderParams[0], options?: RenderParams
 // Re-export everything from the testing library, but substitute our custom render function
 export * from '@testing-library/react';
 export { customRender as render };
+export { render as renderWithoutProviders };
