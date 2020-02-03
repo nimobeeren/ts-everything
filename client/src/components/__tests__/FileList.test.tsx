@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, ApolloMockingProvider } from 'test-utils';
+import { render } from 'test-utils';
 import { FileList } from '../FileList';
 
 describe('<FileList />', () => {
@@ -14,11 +14,7 @@ describe('<FileList />', () => {
   });
 
   it('renders error state when query fails', async () => {
-    const { findByText } = render(
-      <ApolloMockingProvider errors={[]}>
-        <FileList />
-      </ApolloMockingProvider>
-    );
+    const { findByText } = render(<FileList />, { gqlErrors: [] });
 
     // FIXME: when passing errors, the component renders twice, first without errors and then with
 
@@ -36,11 +32,7 @@ describe('<FileList />', () => {
       })
     };
 
-    const { findByText } = render(
-      <ApolloMockingProvider mocks={mocks}>
-        <FileList />
-      </ApolloMockingProvider>
-    );
+    const { findByText } = render(<FileList />, { gqlMocks: mocks });
 
     // FIXME: when passing mocks, the component renders twice, first without custom mocks and then with
 

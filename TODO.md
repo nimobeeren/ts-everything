@@ -1,5 +1,6 @@
 Testing
 
+- Speed up tests
 - Snapshot testing
 - Automatically generate integration tests for each query?
 - Automocking?
