@@ -1,3 +1,4 @@
+import { Server } from 'http';
 import { ApolloServer } from 'apollo-server-koa';
 import { createTestClient } from 'apollo-server-testing';
 import request from 'supertest';
@@ -10,25 +11,30 @@ jest.mock('../../../graphql/src/schema.graphql');
 jest.mock('../api');
 
 describe('Server', () => {
-  it('responds to HTTP requests', async () => {
-    const server = start(process.env.PORT || 4000);
-    const response = await request(server).get('/');
-    expect(response).not.toBeNull();
-    server.close();
+  let httpServer: Server;
+  beforeAll(() => {
+    httpServer = start(process.env.PORT || 4000);
+  });
+  afterAll(() => {
+    httpServer.close();
   });
 
-  it('fetches file list', async () => {
-    // create a test server to test against, using our production typeDefs,
-    // resolvers, and dataSources.
-    const server = new ApolloServer({ typeDefs, resolvers });
+  it('responds to HTTP requests on the GraphQL endpoint', async () => {
+    const response = await request(httpServer).post('/graphql');
+    // We don't care exactly what the response is, as long as we get one
+    // The implementation of the GraphQL server is not our responsiblity
+    expect(response.status).toMatchSnapshot();
+  });
+
+  it('serves a file list', async () => {
+    // create a test server to test against
+    const apolloServer = new ApolloServer({ typeDefs, resolvers });
 
     // use the test server to create a query function
-    const { query } = createTestClient(server);
+    const { query } = createTestClient(apolloServer);
 
     // run query against the server and snapshot the output
     const res = await query({ query: FileListDocument });
     expect(res).toMatchSnapshot();
   });
-
-  // TODO: test some GraphQL requests
 });

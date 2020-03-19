@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Server fetches file list 1`] = `
+exports[`Server responds to HTTP requests on the GraphQL endpoint 1`] = `500`;
+
+exports[`Server serves a file list 1`] = `
 Object {
   "data": undefined,
   "errors": Array [
