@@ -4,10 +4,21 @@ exports[`Server responds to HTTP requests on the GraphQL endpoint 1`] = `500`;
 
 exports[`Server serves a file list 1`] = `
 Object {
-  "data": undefined,
-  "errors": Array [
-    [ValidationError: Cannot query field "files" on type "Query".],
-  ],
+  "data": Object {
+    "files": Object {
+      "items": Array [
+        Object {
+          "path": "/hello/world.mp4",
+          "title": "Hello World",
+        },
+        Object {
+          "path": "/hello/breaking-bad.mp4",
+          "title": "Breaking Bad",
+        },
+      ],
+    },
+  },
+  "errors": undefined,
   "extensions": undefined,
   "http": Object {
     "headers": Headers {

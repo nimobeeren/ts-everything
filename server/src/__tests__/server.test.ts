@@ -7,9 +7,6 @@ import { resolvers } from '../api';
 import { FileListDocument } from '../../../graphql/src';
 import { start } from '../server';
 
-jest.mock('../../../graphql/src/schema.graphql');
-jest.mock('../api');
-
 describe('Server', () => {
   let httpServer: Server;
   beforeAll(() => {
@@ -27,7 +24,7 @@ describe('Server', () => {
   });
 
   it('serves a file list', async () => {
-    // create a test server to test against
+    // create a test server to test against our production schema
     const apolloServer = new ApolloServer({ typeDefs, resolvers });
 
     // use the test server to create a query function
