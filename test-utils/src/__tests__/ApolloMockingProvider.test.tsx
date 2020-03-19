@@ -5,7 +5,7 @@ import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 // We need to use a `render` function that does not wrap our component with any providers,
 // to avoid interfering with our tests.
-import { renderWithoutProviders as render, wait } from 'test-utils';
+import { renderWithoutProviders as render } from 'test-utils';
 import { ApolloMockingProvider } from '../ApolloMockingProvider';
 
 // Mock the schema so we are really just testing the component itself
@@ -21,11 +21,6 @@ const GET_FOO = gql`
 `;
 
 describe('<ApolloMockingProvider />', () => {
-  it('renders without exploding', async () => {
-    render(<ApolloMockingProvider />);
-    await wait();
-  });
-
   it('renders its children', () => {
     const { getByTestId } = render(
       <ApolloMockingProvider>
@@ -59,8 +54,6 @@ describe('<ApolloMockingProvider />', () => {
         <TestConsumer />
       </ApolloMockingProvider>
     );
-
-    await wait();
   });
 
   it('provides loading state on first render', async done => {
@@ -82,8 +75,6 @@ describe('<ApolloMockingProvider />', () => {
         <TestConsumer />
       </ApolloMockingProvider>
     );
-
-    await wait();
   });
 
   it('provides errors', async done => {
@@ -108,7 +99,5 @@ describe('<ApolloMockingProvider />', () => {
         <TestConsumer />
       </ApolloMockingProvider>
     );
-
-    await wait();
   });
 });
