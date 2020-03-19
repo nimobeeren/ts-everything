@@ -30,7 +30,7 @@ describe('<ApolloMockingProvider />', () => {
     expect(getByTestId('child')).toBeInTheDocument();
   });
 
-  it('provides mocked data', async done => {
+  it('provides mocked data', async () => {
     const mocks: IMocks = {
       Foo: () => ({
         bar: 'baz'
@@ -44,19 +44,21 @@ describe('<ApolloMockingProvider />', () => {
         expect(error).toBeUndefined();
         expect(data).toHaveProperty('foo');
         expect(data.foo.bar).toBe('baz');
-        done();
+        return <div data-testid="done" />;
       }
       return null;
     };
 
-    render(
+    const { findByTestId } = render(
       <ApolloMockingProvider mocks={mocks}>
         <TestConsumer />
       </ApolloMockingProvider>
     );
+
+    expect(await findByTestId('done')).toBeInTheDocument();
   });
 
-  it('provides loading state on first render', async done => {
+  it('provides loading state on first render', async () => {
     let firstRender = true;
 
     // Helper component that consumes Apollo context and makes assertions
@@ -65,19 +67,20 @@ describe('<ApolloMockingProvider />', () => {
       if (firstRender) {
         expect(loading).toBe(true);
         firstRender = false;
-        done();
       }
-      return null;
+      return <div data-testid="done" />;
     };
 
-    render(
+    const { findByTestId } = render(
       <ApolloMockingProvider>
         <TestConsumer />
       </ApolloMockingProvider>
     );
+
+    expect(await findByTestId('done')).toBeInTheDocument();
   });
 
-  it('provides errors', async done => {
+  it('provides errors', async () => {
     // What errors we expect to be returned
     const errors = [new GraphQLError('Something went wrong')];
 
@@ -89,15 +92,17 @@ describe('<ApolloMockingProvider />', () => {
       if (!loading) {
         expect(error).toBeDefined();
         expect(error.message).toContain('Something went wrong');
-        done();
+        return <div data-testid="done" />;
       }
       return null;
     };
 
-    render(
+    const { findByTestId } = render(
       <ApolloMockingProvider errors={errors}>
         <TestConsumer />
       </ApolloMockingProvider>
     );
+
+    expect(await findByTestId('done')).toBeInTheDocument();
   });
 });
