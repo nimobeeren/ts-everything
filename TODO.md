@@ -1,6 +1,6 @@
 Testing
 
-- Speed up tests
+- Fix console errors
 - Snapshot testing
 - Automatically generate integration tests for each query?
 - Automocking?
@@ -19,3 +19,4 @@ Infrastructure
 - Idea: write configuration in TS and throw the whole thing through babel/tsc
 - Test if babel is really faster than tsc
 - Try Rollup
+- Precommit hook?
