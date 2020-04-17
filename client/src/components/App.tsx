@@ -18,6 +18,8 @@ const App: React.FC = () => (
   <ApolloProvider client={client}>
     <Global styles={global} />
     <ThemeProvider theme={theme}>
+      {/* TODO: prefer not rendering useless div */}
+      <div data-testid="content" />
       <FileList />
     </ThemeProvider>
   </ApolloProvider>

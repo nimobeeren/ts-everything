@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, wait } from 'test-utils';
+import { renderWithoutProviders as render } from 'test-utils';
 import App from '../App';
 
 describe('<App />', () => {
@@ -7,10 +7,10 @@ describe('<App />', () => {
     // We simply render the App and pass the test if no errors are thrown
     // This component is not responsbile for rendering any content, so we don't make
     // any additional assertions
-    render(<App />);
+    const { findByTestId } = render(<App />);
 
     // Wait a tick for any mocked API to finish
     // This helps to avoid "an update was not wrapped in act(...)" warnings
-    await wait();
+    expect(await findByTestId('content')).toBeInTheDocument();
   });
 });
