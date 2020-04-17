@@ -5,6 +5,8 @@ Testing
 - Automatically generate integration tests for each query?
 - Automocking?
 - Bring back container component as an example for testing a parent/child tree?
+- `ts-jest` is being annoying by failing tests over unused vars
+- what to wait for when testing `<App />`?
 
 Optimization
 
