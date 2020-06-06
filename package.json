@@ -83,7 +83,7 @@
     "apollo-cache-inmemory": "^1.6.3",
     "apollo-client": "^2.6.4",
     "apollo-link-http": "^1.5.16",
-    "apollo-server-koa": "^2.9.12",
+    "apollo-server-koa": "^2.14.2",
     "emotion-theming": "^10.0.19",
     "graphql-tag": "^2.10.1",
     "koa": "^2.8.2",
